@@ -332,11 +332,11 @@ const handleOpenInvitation = () => {
           whileInView={{ opacity: 1, y: 0 }}
           className="text-4xl md:text-5xl font-black text-center mb-4"
         >
-          📸 Galeri Kiara
+          📸 Kiara gallery
         </motion.h2>
 
         <p className="text-center text-[#8D6E63] mb-14">
-          Momen lucu dan menggemaskan Kiara 🐣
+           yang lagi uilang tahun pertama 🥰
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
