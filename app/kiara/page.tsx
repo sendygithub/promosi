@@ -1,5 +1,5 @@
 "use client";
-
+import dynamic from 'next/dynamic';
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -58,7 +58,7 @@ function BirthdayEffects() {
           key={`candy-${i}`}
           initial={{
             y: -100,
-            x: Math.random() * window.innerWidth,
+            x: `${Math.random() * 100}vw`,
             rotate: 0,
             opacity: 0,
           }}
@@ -73,7 +73,7 @@ function BirthdayEffects() {
             delay: Math.random() * 5,
             ease: "linear",
           }}
-          className="fixed top-0 z-10 pointer-events-none text-2xl"
+          className="fixed top-0 left-0 z-10 pointer-events-none text-2xl"
         >
           {candies[i % candies.length]}
         </motion.div>
@@ -107,7 +107,7 @@ function BirthdayEffects() {
           key={`balloon-${i}`}
           initial={{
             y: "110vh",
-            x: Math.random() * window.innerWidth,
+            x: `${Math.random() * 100}vw`,
           }}
           animate={{
             y: "-20vh",
@@ -118,13 +118,11 @@ function BirthdayEffects() {
             delay: Math.random() * 5,
             ease: "linear",
           }}
-          className="fixed z-10 pointer-events-none text-5xl opacity-70"
+          className="fixed left-0 z-10 pointer-events-none text-5xl opacity-70"
         >
           {balloons[i % balloons.length]}
         </motion.div>
       ))}
-
-      
     </>
   );
 }
