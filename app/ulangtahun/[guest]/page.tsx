@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useParams } from "next/navigation";
+import { div } from "framer-motion/client";
 
 const galleryPhotos = [
     "/gallery/kiara1.jpg",
@@ -191,9 +192,10 @@ export default function UlangTahunPage() {
             <div className={`transition-all duration-1000 ${opened ? "opacity-100" : "opacity-0 h-screen overflow-hidden"}`}>
 
                 {/* WELCOME SECTION */}
-                <section className="relative pt-20 z-10 pb-32 px-5 text-center bg-white overflow-hidden z-10">
-                    <div className="absolute -top-10 -left-10 w-40 h-40 bg-yellow-100 rounded-full blur-3xl opacity-50"></div>
-                    <div className="absolute top-20 -right-10 w-60 h-60 bg-yellow-200 rounded-full blur-3xl opacity-30"></div>
+                <section className="relative pt-20 pb-32 px-5 text-center bg-transparent overflow-hidden z-10">
+                    <div className="absolute -top-10 -left-10 w-40 h-40 bg-yellow-200 rounded-full blur-3xl opacity-20"></div>
+
+                    <div className="absolute top-20 -right-10 w-60 h-60 bg-yellow-300 rounded-full blur-3xl opacity-10"></div>
 
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
