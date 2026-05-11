@@ -49,7 +49,7 @@ export default function UlangTahunPage() {
     const [opened, setOpened] = useState(false);
     const audioRef = useRef<HTMLAudioElement | null>(null);
 
-    const countdown = useCountdown("2026-05-12T10:00:00+07:00");
+    const countdown = useCountdown("2026-05-14T10:00:00+07:00");
 
     const handleOpenInvitation = () => {
         setOpened(true);
