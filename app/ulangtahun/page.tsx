@@ -10,6 +10,9 @@ const galleryPhotos = [
     "/gallery/kiara4.jpg",
     "/gallery/kiara5.jpg",
     "/gallery/kiara6.jpg",
+    "/gallery/kiara7.jpg",
+    "/gallery/kiara8.jpg",
+    "/gallery/kiara9.jpg",
 ];
 
 function useCountdown(targetDate: string) {
@@ -239,6 +242,7 @@ export default function UlangTahunPage() {
                                         src={photo}
                                         alt={`Kiara ${i + 1}`}
                                         fill
+                                        sizes="(max-width: 768px) 50vw, 33vw"
                                         className="object-cover group-hover:scale-110 transition-transform duration-500"
                                     />
                                     <div className="absolute inset-0 bg-yellow-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -263,8 +267,8 @@ export default function UlangTahunPage() {
                                 <span className="text-4xl">💳</span>
                             </div>
                             <h4 className="text-xl font-bold text-gray-800 mb-1">BCA</h4>
-                            <p className="text-2xl font-black text-yellow-600 mb-1 tracking-widest">1234567890</p>
-                            <p className="text-gray-500 mb-6">a.n Kiara Sovia</p>
+                            <p className="text-2xl font-black text-yellow-600 mb-1 tracking-widest">7610782951</p>
+                            <p className="text-gray-500 mb-6">a.n Ovikarina</p>
 
                             <button className="bg-gray-100 hover:bg-yellow-50 text-gray-700 font-bold py-2 px-6 rounded-full transition-colors flex items-center justify-center mx-auto gap-2 text-sm border border-gray-200">
                                 📋 Salin Nomor Rekening
@@ -295,11 +299,11 @@ export default function UlangTahunPage() {
                 </section>
 
                 {/* FOOTER */}
-                <footer className="py-16 text-center bg-yellow-400 text-yellow-900 rounded-t-[3rem] mt-10">
+                <footer className="py-16 text-center bg-yellow-400 text-white rounded-t-[3rem] mt-10">
                     <div className="text-5xl mb-6">🐣🐥🐤</div>
                     <h2 className="text-3xl font-black mb-4">Terima Kasih!</h2>
-                    <p className="font-medium text-yellow-800 mb-8 max-w-md mx-auto px-5">
-                        Aku tunggu kehadiran teman-teman yaa di hari ulang tahunku!
+                    <p className="font-medium text-white-800 mb-8 max-w-md mx-auto px-5">
+                        Kehadiran Anda merupakan kebahagiaan bagi buna bapak kia, dan memberikan doa terbaik untuk Kiara ❤️
                     </p>
                     <div className="w-16 h-1 mx-auto bg-yellow-500 rounded-full mb-8"></div>
                     <p className="text-sm font-bold opacity-75">
