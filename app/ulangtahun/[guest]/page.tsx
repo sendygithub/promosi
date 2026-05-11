@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { useParams } from "next/navigation";
 
 const galleryPhotos = [
     "/gallery/kiara1.jpg",
@@ -14,6 +15,9 @@ const galleryPhotos = [
     "/gallery/kiara8.jpg",
     "/gallery/kiara9.jpg",
 ];
+
+
+
 
 function useCountdown(targetDate: string) {
     const [timeLeft, setTimeLeft] = useState({
@@ -45,11 +49,75 @@ function useCountdown(targetDate: string) {
     return timeLeft;
 }
 
+
+function ChickBackground() {
+    const chicks = ["🐥", "🐣", "🐤"];
+
+    return (
+        <>
+            {Array.from({ length: 15 }).map((_, i) => (
+                <motion.div
+                    key={i}
+                    initial={{
+                        x: -200,
+                        y: Math.random() * 2000,
+                        rotate: 0,
+                        opacity: 0.15,
+                    }}
+                    animate={{
+                        x: ["0vw", "120vw"],
+                        rotate: [0, 10, -10, 0],
+                    }}
+                    transition={{
+                        duration: 20 + i * 2,
+                        repeat: Infinity,
+                        ease: "linear",
+                        delay: i * 1.5,
+                    }}
+                    className="fixed text-4xl md:text-6xl pointer-events-none z-0"
+                    style={{
+                        top: `${Math.random() * 100}%`,
+                    }}
+                >
+                    {chicks[i % chicks.length]}
+                </motion.div>
+            ))}
+
+            {/* Floating chick */}
+            {Array.from({ length: 10 }).map((_, i) => (
+                <motion.div
+                    key={`float-${i}`}
+                    animate={{
+                        y: [0, -20, 0],
+                        rotate: [-5, 5, -5],
+                    }}
+                    transition={{
+                        duration: 3 + i,
+                        repeat: Infinity,
+                    }}
+                    className="fixed pointer-events-none z-0 text-3xl opacity-20"
+                    style={{
+                        left: `${i * 10}%`,
+                        top: `${10 + (i % 5) * 15}%`,
+                    }}
+                >
+                    🐥
+                </motion.div>
+            ))}
+        </>
+    );
+}
 export default function UlangTahunPage() {
     const [opened, setOpened] = useState(false);
     const audioRef = useRef<HTMLAudioElement | null>(null);
 
     const countdown = useCountdown("2026-05-14T10:00:00+07:00");
+    const params = useParams();
+
+    const guestName = decodeURIComponent(
+        (params.guest as string || "Tamu Undangan")
+    ).replace(/\+/g, " ");
+
 
     const handleOpenInvitation = () => {
         setOpened(true);
@@ -61,10 +129,23 @@ export default function UlangTahunPage() {
     };
 
     return (
-        <div className="min-h-screen bg-[#FFFDF0] text-[#5C4033] font-sans overflow-x-hidden selection:bg-yellow-200">
+        <div className="relative min-h-screen text-[#5C4033] font-sans overflow-x-hidden selection:bg-yellow-200">
+            <div className="fixed inset-0 z-[-1] pointer-events-none">
+                <Image
+                    src="/gallery/ayam.png" // Ganti dengan path foto kartun anak ayam Anda
+                    alt="Background Kartun"
+                    fill
+                    className="object-cover opacity-20" // Opacity rendah agar konten tetap terbaca
+                    priority
+                />
+                {/* Overlay gradasi agar background menyatu */}
+                <div className="absolute inset-0 bg-white/40" />
+            </div>
+            <ChickBackground />
             <audio ref={audioRef} loop>
                 <source src="/music/birthday-song.mp3" type="audio/mpeg" />
             </audio>
+
 
             {/* COVER / HERO */}
             <AnimatePresence>
@@ -92,12 +173,12 @@ export default function UlangTahunPage() {
 
                             <div className="mb-8">
                                 <p className="text-gray-500 mb-1">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-                                <h2 className="text-2xl font-bold text-gray-800 border-b-2 border-yellow-200 inline-block pb-1">Tamu Undangan</h2>
+                                <h2 className="text-2xl font-bold text-gray-800 border-b-2 border-yellow-200 inline-block pb-1">{guestName}</h2>
                             </div>
 
                             <button
                                 onClick={handleOpenInvitation}
-                                className="bg-yellow-400 hover:bg-yellow-500 text-white transition-all duration-300 px-8 py-4 rounded-full text-lg font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center mx-auto gap-2"
+                                className="bg-yellow-400 hover:bg-yellow-500 text-white transition-all duration-500 px-8 py-4 rounded-full text-lg font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center mx-auto gap-2"
                             >
                                 <span>💌</span> Buka Undangan
                             </button>
@@ -110,7 +191,7 @@ export default function UlangTahunPage() {
             <div className={`transition-all duration-1000 ${opened ? "opacity-100" : "opacity-0 h-screen overflow-hidden"}`}>
 
                 {/* WELCOME SECTION */}
-                <section className="relative pt-20 pb-32 px-5 text-center bg-white overflow-hidden">
+                <section className="relative pt-20 z-10 pb-32 px-5 text-center bg-white overflow-hidden z-10">
                     <div className="absolute -top-10 -left-10 w-40 h-40 bg-yellow-100 rounded-full blur-3xl opacity-50"></div>
                     <div className="absolute top-20 -right-10 w-60 h-60 bg-yellow-200 rounded-full blur-3xl opacity-30"></div>
 
@@ -119,15 +200,23 @@ export default function UlangTahunPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         className="relative z-10 max-w-2xl mx-auto"
-                    >
-                        <div className="w-32 h-32 mx-auto bg-yellow-100 rounded-full flex items-center justify-center text-6xl mb-6 shadow-inner border-4 border-white">
-                            🐣
+                    ><div className="relative w-80 h-80 md:w-70 md:h-70 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-2xl bg-yellow-100">
+                            <Image
+                                src="/gallery/kiara1.jpg"
+                                alt="Baby"
+                                fill
+                                sizes="(max-width: 768px) 160px, 208px"
+                                className="object-cover"
+                                priority
+                            />
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-yellow-600 mb-4">Halo Teman-Teman!</h2>
+
+                        <h2 className="text-3xl md:text-4xl font-bold text-yellow-600 mb-4">Halooooo..!</h2>
+                        <h2 className="text-xl md:text-xl font-bold text-white-600 mb-4">Kak : {guestName}</h2>
                         <p className="text-xl text-gray-600 mb-6 font-medium">Datang Yuk! Ke Acara Ulang Tahunku</p>
 
-                        <h1 className="text-5xl md:text-6xl font-black text-gray-800 mb-4">Kiara Sovia</h1>
-                        <p className="text-lg text-gray-500">Putri dari Ibu Ovikarina Dan Bpk Sendy</p>
+                        <h1 className="text-5xl md:text-8xl font-black text-gray-800 mb-4">Kiara Sovia</h1>
+
                     </motion.div>
 
                     {/* SVG Wave */}
@@ -139,7 +228,7 @@ export default function UlangTahunPage() {
                 </section>
 
                 {/* EVENT SECTION */}
-                <section className="relative py-20 px-5 text-center">
+                <section className="relative z-10 py-20 px-5 text-center">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
