@@ -135,7 +135,7 @@ export default function UlangTahunPage() {
                     src="/gallery/ayam.png" // Ganti dengan path foto kartun anak ayam Anda
                     alt="Background Kartun"
                     fill
-                    className="object-cover opacity-20" // Opacity rendah agar konten tetap terbaca
+                    className="object-cover opacity-80" // Opacity rendah agar konten tetap terbaca
                     priority
                 />
                 {/* Overlay gradasi agar background menyatu */}
@@ -172,7 +172,7 @@ export default function UlangTahunPage() {
                             </div>
 
                             <div className="mb-8">
-                                <p className="text-gray-500 mb-1">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+                                <p className="text-gray-500 mb-1">Hallo Kakak :</p>
                                 <h2 className="text-2xl font-bold text-gray-800 border-b-2 border-yellow-200 inline-block pb-1">{guestName}</h2>
                             </div>
 
@@ -212,8 +212,8 @@ export default function UlangTahunPage() {
                         </div>
 
                         <h2 className="text-3xl md:text-4xl font-bold text-yellow-600 mb-4">Halooooo..!</h2>
-                        <h2 className="text-xl md:text-xl font-bold text-white-600 mb-4">Kak : {guestName}</h2>
-                        <p className="text-xl text-gray-600 mb-6 font-medium">Datang Yuk! Ke Acara Ulang Tahunku</p>
+                        <h2 className="text-xl md:text-xl font-bold text-white-600 mb-4"> {guestName}</h2>
+                        <p className="text-xl text-gray-600 mb-6 font-medium">Datang Yuk ! Ke Acara Ulang Tahun</p>
 
                         <h1 className="text-5xl md:text-8xl font-black text-gray-800 mb-4">Kiara Sovia</h1>
 
