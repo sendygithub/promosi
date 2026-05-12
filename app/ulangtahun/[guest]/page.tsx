@@ -19,6 +19,34 @@ const galleryPhotos = [
 
 
 
+function FadeInSection({
+    children,
+    delay = 0,
+    className = "",
+}: {
+    children: React.ReactNode;
+    delay?: number;
+    className?: string;
+}) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{
+                duration: 0.8,
+                delay,
+                ease: "easeOut",
+            }}
+            className={className}
+        >
+            {children}
+        </motion.div>
+    );
+}
+
+
+
 
 function useCountdown(targetDate: string) {
     const [timeLeft, setTimeLeft] = useState({
@@ -214,7 +242,7 @@ export default function UlangTahunPage() {
                         </div>
 
                         <h2 className="text-3xl md:text-4xl font-bold text-yellow-600 mb-4">Halooooo..!</h2>
-                        <h2 className="text-xl md:text-xl font-bold text-white-600 mb-4"> {guestName}</h2>
+                        <h2 className="text-xl md:text-xl font-bold text-white-600 mb-4"> kakak {guestName}</h2>
                         <p className="text-xl text-gray-600 mb-6 font-medium">Datang Yuk ! Ke Acara Ulang Tahun</p>
 
                         <h1 className="text-5xl md:text-8xl font-black text-gray-800 mb-4">Kiara Sovia</h1>
@@ -254,7 +282,7 @@ export default function UlangTahunPage() {
                                     <div className="w-full h-px bg-gray-100"></div>
                                     <div>
                                         <div className="text-gray-400 text-sm font-bold uppercase tracking-wider">Jam</div>
-                                        <div className="text-xl font-bold text-gray-800">10:00 WIB / Pokoknya abis bangun tidur siang pertama kalo moodnya bagus</div>
+                                        <div className="text-xl font-bold text-gray-800">11:30 WIB / Pokoknya abis bangun tidur siang pertama </div>
                                     </div>
                                 </div>
                             </div>
@@ -343,34 +371,7 @@ export default function UlangTahunPage() {
                     </div>
                 </section>
 
-                {/* KADO DIGITAL SECTION */}
-                <section className="py-20 px-5 text-center relative overflow-hidden">
-                    <div className="max-w-3xl mx-auto relative z-10">
-                        <div className="inline-block bg-yellow-300 text-white font-bold px-6 py-2 rounded-full mb-8 shadow-md">
-                            KADO DIGITAL
-                        </div>
-                        <p className="text-gray-600 mb-10 max-w-xl mx-auto">
-                            Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda ingin memberikan tanda kasih untuk Kiara, dapat melalui:
-                        </p>
-
-                        <div className="bg-white p-8 rounded-[2rem] shadow-xl border-2 border-yellow-100 max-w-md mx-auto">
-                            <div className="w-20 h-20 mx-auto bg-gray-50 rounded-full flex items-center justify-center mb-4">
-                                <span className="text-4xl">💳</span>
-                            </div>
-                            <h4 className="text-xl font-bold text-gray-800 mb-1">BCA</h4>
-                            <p className="text-2xl font-black text-yellow-600 mb-1 tracking-widest">7610782951</p>
-                            <p className="text-gray-500 mb-6">a.n Ovikarina</p>
-
-                            <button className="bg-gray-100 hover:bg-yellow-50 text-gray-700 font-bold py-2 px-6 rounded-full transition-colors flex items-center justify-center mx-auto gap-2 text-sm border border-gray-200">
-                                📋 Salin Nomor Rekening
-                            </button>
-                        </div>
-                    </div>
-
-                    {/* Decorative chicks */}
-                    <div className="absolute bottom-10 left-10 text-5xl opacity-50">🐤</div>
-                    <div className="absolute top-20 right-10 text-5xl opacity-50">🐥</div>
-                </section>
+             
 
                 {/* RSVP & UCAPAN */}
                 <section className="py-20 px-5 bg-white text-center border-t-4 border-yellow-100">
@@ -396,10 +397,11 @@ export default function UlangTahunPage() {
                     <p className="font-medium text-white-800 mb-8 max-w-md mx-auto px-5">
                         Kehadiran Anda merupakan kebahagiaan bagi buna bapak kia, dan memberikan doa terbaik untuk Kiara ❤️
                     </p>
-                    <div className="w-16 h-1 mx-auto bg-yellow-500 rounded-full mb-8"></div>
-                    <p className="text-sm font-bold opacity-75">
-                        Keluarga Besar Kiara Sovia
+                    <p className="font-medium text-white-800 mb-8 max-w-md mx-auto px-5">
+                       🐣🐥🐤🐣🐥🐤🐣🐥🐤🐣🐥🐤
                     </p>
+                    
+                    
                 </footer>
 
             </div>
