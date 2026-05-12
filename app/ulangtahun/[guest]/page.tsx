@@ -190,7 +190,7 @@ export default function UlangTahunPage() {
                                 YANG KE-1
                             </div>
                             <div className="mb-8">
-                                <p className="text-gray-500 mb-1">Hallo Kakak :</p>
+                                <p className="text-gray-500 mb-1">Hallo</p>
                                 <h2 className="text-2xl font-bold text-gray-800 border-b-2 border-yellow-200 inline-block">{guestName}</h2>
                             </div>
                             <button
@@ -214,7 +214,7 @@ export default function UlangTahunPage() {
                             <Image src="/gallery/kiara1.jpg" alt="Baby" fill className="object-cover" priority />
                         </div>
                         <h2 className="text-3xl font-bold text-yellow-600 mb-2">Halooooo..!</h2>
-                        <h3 className="text-xl font-medium text-gray-600 mb-4">Kakak {guestName}</h3>
+                        <h3 className="text-xl font-medium text-gray-600 mb-4">{guestName}</h3>
                         <p className="text-lg text-gray-500 mb-2">Datang Yuk! Ke Acara Ulang Tahun</p>
                         <h1 className="text-5xl md:text-7xl font-black text-gray-800">Kiara Sovia</h1>
                     </FadeInSection>
