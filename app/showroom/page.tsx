@@ -11,6 +11,8 @@ import {
   MessageCircle,
   Mail,
   MapPin,
+  Clock3,
+  Sparkles,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -312,6 +314,51 @@ const filterOptions = [
   "IoT",
 ];
 
+const processProjects = [
+  {
+    title: "Portfolio Sendy",
+    desc: "Halaman profil, project, skill, dan perjalanan karier pribadi.",
+    href: "/portofolio",
+    status: "Live preview",
+    stack: ["Next.js", "Tailwind"],
+  },
+  {
+    title: "Kiara Birthday",
+    desc: "Undangan ulang tahun digital dengan galeri, countdown, dan detail acara.",
+    href: "/kiara",
+    status: "On process",
+    stack: ["React", "Framer Motion"],
+  },
+  {
+    title: "Undangan Ulang Tahun",
+    desc: "Template undangan personal dengan halaman tamu dinamis.",
+    href: "/ulangtahun/Sahabat",
+    status: "Template",
+    stack: ["Next.js", "Dynamic Route"],
+  },
+  {
+    title: "Client Dashboard",
+    desc: "Area dashboard untuk tracking project, revisi, jadwal, dan pembayaran.",
+    href: "/dashboard",
+    status: "Prototype",
+    stack: ["Shadcn UI", "Sidebar"],
+  },
+  {
+    title: "Pricing Program",
+    desc: "Daftar harga layanan program skripsi berdasarkan katalog showroom.",
+    href: "/pricing",
+    status: "Draft",
+    stack: ["Next.js", "Table"],
+  },
+  {
+    title: "Next Project",
+    desc: "Slot project baru untuk demo, template, atau studi kasus berikutnya.",
+    href: "#",
+    status: "Coming soon",
+    stack: ["Dummy", "Planning"],
+  },
+];
+
 export default function DemoPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [activeFilter, setActiveFilter] = useState("All");
@@ -389,6 +436,66 @@ export default function DemoPage() {
             ))}
           </div>
         </header>
+
+        <section className="mb-24">
+          <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <div>
+              <Badge className="mb-4 bg-blue-500/10 text-blue-300 border-blue-400/20 px-4 py-1 rounded-full uppercase tracking-widest text-[10px] font-bold">
+                New Project On Process!
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+                Project Baru & Eksperimen Aktif
+              </h2>
+              <p className="mt-3 max-w-2xl text-white/45 leading-relaxed">
+                Kumpulan halaman dan demo yang sedang disiapkan. Beberapa sudah
+                bisa dibuka, sisanya masih dummy untuk project berikutnya.
+              </p>
+            </div>
+            <div className="hidden md:flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white/45">
+              <Clock3 className="w-4 h-4 text-[#d4af37]" />
+              Updated Showcase
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {processProjects.map((project, index) => (
+              <Link
+                key={project.title}
+                href={project.href}
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-blue-400/40 hover:bg-white/[0.055]"
+              >
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                <div className="mb-7 flex items-start justify-between gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-300 ring-1 ring-blue-400/20">
+                    <Sparkles className="h-5 w-5" />
+                  </div>
+                  <span className="rounded-full border border-[#d4af37]/20 bg-[#d4af37]/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em] text-[#d4af37]">
+                    {project.status}
+                  </span>
+                </div>
+                <p className="mb-3 font-mono text-xs font-bold text-white/25">
+                  0{index + 1}
+                </p>
+                <h3 className="text-xl font-bold text-white transition-colors group-hover:text-blue-200">
+                  {project.title}
+                </h3>
+                <p className="mt-3 min-h-[72px] text-sm leading-relaxed text-white/45">
+                  {project.desc}
+                </p>
+                <div className="mt-6 flex flex-wrap gap-2 border-t border-white/5 pt-5">
+                  {project.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-md bg-white/5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white/45"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
 
         {/* GRID SECTION */}
         <motion.div
