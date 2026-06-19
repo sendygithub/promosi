@@ -3,8 +3,7 @@ import { Plus_Jakarta_Sans, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
-
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 // Inisialisasi font
 const jakarta = Plus_Jakarta_Sans({
@@ -13,8 +12,8 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Kiara Birthday",
-  description: "Undangan Ulang Tahun Kiara Sovia Yang Ke 1",
+  title: "Next Core",
+  description: "Website untuk membantu anda menyelesaikan masalah IT",
 };
 
 export default function RootLayout({
@@ -25,7 +24,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", jakarta.className, "font-sans", geist.variable)}
+      className={cn(
+        "h-full",
+        "antialiased",
+        jakarta.className,
+        "font-sans",
+        geist.variable,
+      )}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
