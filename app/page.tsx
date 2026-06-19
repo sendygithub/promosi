@@ -15,7 +15,7 @@ import {
   Globe,
 } from "lucide-react";
 import Link from "next/link";
-import Navbar from "@/app/components/Navbar"
+import Navbar from "@/app/components/Navbar";
 
 export default function LandingPage() {
   const containerVariants = {
@@ -65,7 +65,6 @@ export default function LandingPage() {
 
           <div className="flex flex-col md:flex-row gap-5 justify-center items-center">
             <Button
-            
               size="lg"
               className="bg-[#d4af37] hover:bg-[#b8962f] text-slate-950 font-bold px-10 py-7 text-lg rounded-full transition-all duration-300 shadow-xl shadow-[#d4af37]/10 group"
             >

@@ -20,15 +20,19 @@ export default function MobileMenu({ navLinks }: MobileMenuProps) {
   return (
     <div className="md:hidden">
       <Sheet>
-        <SheetTrigger>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="text-white hover:bg-[#d4af37]/10"
-          >
-            <Menu className="w-6 h-6" />
-          </Button>
-        </SheetTrigger>
+        {/* TAMBAHKAN asChild DI SINI */}
+        {/* Ganti struktur SheetTrigger lama Anda menjadi seperti ini */}
+        <SheetTrigger
+          render={
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-white hover:bg-[#d4af37]/10"
+            >
+              <Menu className="w-6 h-6" />
+            </Button>
+          }
+        />
         <SheetContent
           side="right"
           className="bg-slate-950/95 backdrop-blur-2xl border-white/10 p-0 text-white w-full sm:w-[350px]"
