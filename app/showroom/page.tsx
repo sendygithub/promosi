@@ -569,10 +569,10 @@ export default function DemoPage() {
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 bg-[#d4af37]/10 border-[#d4af37] text-[#d4af37] shadow-none0 rounded-xl flex items-center justify-center font-black text-white ">
-                SI
+                NEXT
               </div>
               <h2 className="text-2xl font-bold bg-[#d4af37]/10 border-[#d4af37] text-[#d4af37] shadow-none bg-clip-text tracking-tighter">
-                SI SOLUTION
+                NextCore Tangerang
               </h2>
             </div>
             <p className="text-white/40 max-w-sm mb-8 leading-relaxed italic text-sm">

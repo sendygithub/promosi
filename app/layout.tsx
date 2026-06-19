@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Geist } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+
 
 // Inisialisasi font
 const jakarta = Plus_Jakarta_Sans({
@@ -21,7 +25,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${jakarta.className} h-full antialiased`}
+      className={cn("h-full", "antialiased", jakarta.className, "font-sans", geist.variable)}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

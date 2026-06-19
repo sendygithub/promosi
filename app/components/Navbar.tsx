@@ -8,10 +8,10 @@ import NavItem from "./NavItem";
 import MobileMenu from "./MobileMenu";
 
 const navLinks = [
-  { name: "Services", href: "#services" },
-  { name: "Portfolio", href: "#projects" },
-  { name: "Process", href: "#process" },
-  { name: "Pricing", href: "#pricing" },
+  { name: "Services", href: "/services" },
+  { name: "Portfolio", href: "/portofolio" },
+  { name: "Process", href: "/process" },
+  { name: "Pricing", href: "/pricing" },
 ];
 
 export default function Navbar() {
@@ -73,10 +73,10 @@ export default function Navbar() {
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2 group">
           <div className="w-10 h-10 bg-gradient-to-br from-[#d4af37] to-blue-600 rounded-xl flex items-center justify-center font-black text-white shadow-lg rotate-3 group-hover:rotate-12 transition-transform duration-300">
-            SI
+            Next
           </div>
           <span className="text-xl font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent tracking-tighter">
-            SI SOLUTION
+            NextCore
           </span>
         </Link>
 

@@ -12,12 +12,6 @@ export default function LoginPage() {
     <main className="grid min-h-screen bg-[#06080f] text-white lg:grid-cols-[1fr_0.9fr]">
       <section className="flex items-center px-6 py-16">
         <div className="mx-auto w-full max-w-md">
-          <Link
-            href="/"
-            className="mb-10 inline-flex items-center gap-2 text-sm font-bold text-[#d4af37]"
-          >
-            SI Solution
-          </Link>
           <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6 shadow-2xl shadow-black/25 md:p-8">
             <div className="mb-8">
               <div className="mb-5 flex size-12 items-center justify-center rounded-lg bg-[#d4af37]/10 text-[#d4af37]">
@@ -99,7 +93,11 @@ export default function LoginPage() {
           </p>
         </div>
         <div className="grid gap-4">
-          {["Progress modul real-time", "Catatan revisi terstruktur", "File project dan dokumentasi"].map((item) => (
+          {[
+            "Progress modul real-time",
+            "Catatan revisi terstruktur",
+            "File project dan dokumentasi",
+          ].map((item) => (
             <div
               key={item}
               className="rounded-lg border border-white/10 bg-[#0b101b] p-4 font-semibold text-white/72"

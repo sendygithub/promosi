@@ -341,7 +341,7 @@ export default function LandingPage() {
             </div>
             <div className="text-left">
               <span className="block font-bold text-white text-lg tracking-tighter">
-                SI Solution
+                NextCore Tangerang
               </span>
               <span className="block text-[10px] uppercase tracking-[0.3em] text-slate-600 font-bold">
                 Tangerang District
