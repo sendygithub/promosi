@@ -52,33 +52,38 @@ export default function LandingPage() {
             ✨ Partner Skripsi Terpercaya #1
           </Badge>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight leading-[1.1] text-white">
-            Wujudkan Skripsi <br />
-            <span className="text-[#d4af37]">Tanpa Revisi Berulang</span>
+          <h1 className="text-3xl md:text-7xl font-bold mb-8 tracking-tight leading-[1.1] text-white">
+            Prisma Komputer <br />
+            <span className="text-[#d4af37]">
+              Pendampingan Skripsi IT yang Profesional
+            </span>
           </h1>
 
           <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
-            Membantu mahasiswa Sistem Informasi membangun aplikasi profesional
-            dengan standar industri. Fokus pada kualitas kode dan pendampingan
-            intensif.
+            Membantu mahasiswa menyelesaikan tugas akhir melalui konsultasi,
+            analisis data, dan editing akademik, serta menyediakan layanan
+            servis komputer untuk kebutuhan pribadi maupun bisnis.
           </p>
 
           <div className="flex flex-col md:flex-row gap-5 justify-center items-center">
-            <Button
-              size="lg"
-              className="bg-[#d4af37] hover:bg-[#b8962f] text-slate-950 font-bold px-10 py-7 text-lg rounded-full transition-all duration-300 shadow-xl shadow-[#d4af37]/10 group"
-            >
-              Mulai Project Sekarang
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-
             <Link href="/showroom">
+              <Button
+                size="lg"
+                className="bg-[#d4af37] hover:bg-[#b8962f] text-slate-950 font-bold px-10 py-7 text-lg rounded-full transition-all duration-300 shadow-xl shadow-[#d4af37]/10 group"
+              >
+                Pendampingan Skripsi
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+
+            <Link href="/servis">
               <Button
                 size="lg"
                 variant="outline"
                 className="border-white/10 bg-white/5 hover:bg-white/10 hover:border-[#d4af37]/40 px-10 py-7 text-lg rounded-full transition-all duration-300 text-slate-300"
               >
-                Lihat Demo App
+                Servis Komputer & Laptop
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
           </div>

@@ -12,7 +12,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Next Core",
+  title: "Prisma Komputer",
   description: "Website untuk membantu anda menyelesaikan masalah IT",
 };
 
