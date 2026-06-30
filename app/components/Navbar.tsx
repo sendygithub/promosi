@@ -9,7 +9,7 @@ import MobileMenu from "./MobileMenu";
 
 const navLinks = [
   { name: "Services", href: "/services" },
-  { name: "Portfolio", href: "/portofolio" },
+  { name: "Portfolio", href: "/andreansah.vercel.app" },
   { name: "Process", href: "/process" },
   { name: "Pricing", href: "/pricing" },
 ];
@@ -76,7 +76,7 @@ export default function Navbar() {
             Next
           </div>
           <span className="text-xl font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent tracking-tighter">
-            NextCore
+            PrismaComp
           </span>
         </Link>
 

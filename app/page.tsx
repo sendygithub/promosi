@@ -345,7 +345,7 @@ export default function LandingPage() {
             </div>
             <div className="text-left">
               <span className="block font-bold text-white text-lg tracking-tighter">
-                NextCore Tangerang
+                Prisma Tangerang
               </span>
               <span className="block text-[10px] uppercase tracking-[0.3em] text-slate-600 font-bold">
                 Tangerang District
@@ -354,7 +354,7 @@ export default function LandingPage() {
           </div>
 
           <p className="text-slate-600 text-[13px] font-medium tracking-wide">
-            © 2026 Crafted with Excellence for Information System Students.
+            © 2026 Crafted by Sendy Andreansah.
           </p>
 
           <div className="flex gap-6">

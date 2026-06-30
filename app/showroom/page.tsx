@@ -13,6 +13,16 @@ import {
   MapPin,
   Clock3,
   Sparkles,
+  ExternalLink,
+  Star,
+  Globe,
+  Monitor,
+  Smartphone,
+  Palette,
+  Zap,
+  Shield,
+  BarChart3,
+  Layers,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -33,13 +43,76 @@ const getTechIcon = (tech: string) => {
     "Node.js": "https://svgl.app/library/nodejs.svg",
     PHP: "https://svgl.app/library/php.svg",
     IoT: "https://img.icons8.com/fluency/48/internet-of-things.png",
+    Bootstrap: "https://svgl.app/library/bootstrap.svg",
+    MongoDB: "https://svgl.app/library/mongodb-icon.svg",
+    Midtrans: "https://img.icons8.com/color/48/midtrans.png",
   };
   return icons[tech] || "https://svgl.app/library/code.svg";
 };
 
-const projects = [
+// ===== REAL PROJECTS (milik Sendy) =====
+const realProjects = [
   {
-    id: 1,
+    id: "andreansah",
+    title: "Andreansah — Portfolio",
+    desc: "Portfolio pribadi dengan desain modern, menampilkan project, skill, dan perjalanan karier.",
+    url: "https://andreansah.vercel.app",
+    stack: ["Next.js", "TypeScript", "Tailwind"],
+    category: "Portfolio",
+    gradient: "from-amber-600/20 via-orange-500/10 to-rose-600/20",
+    accentColor: "amber",
+    features: ["Responsive Design", "Dark Mode", "Animasi Smooth"],
+  },
+  {
+    id: "bintang-audio",
+    title: "Bintang Audio — Rental Sound System",
+    desc: "Platform rental sound system profesional dengan katalog alat, harga, dan pemesanan online.",
+    url: "https://bintang-audio.vercel.app",
+    stack: ["Next.js", "TypeScript", "Tailwind"],
+    category: "Rental",
+    gradient: "from-violet-600/20 via-purple-500/10 to-fuchsia-600/20",
+    accentColor: "violet",
+    features: ["Katalog Produk", "Sistem Booking", "Admin Dashboard"],
+  },
+  {
+    id: "oday-aquatic",
+    title: "Oday Aquatic — Toko Ikan Hias",
+    desc: "Toko online ikan hias dan perlengkapan akuarium dengan sistem belanja modern.",
+    url: "https://oday-aquatic.vercel.app",
+    stack: ["Next.js", "TypeScript", "Tailwind"],
+    category: "E-Commerce",
+    gradient: "from-cyan-600/20 via-blue-500/10 to-teal-600/20",
+    accentColor: "cyan",
+    features: ["Katalog Produk", "Keranjang Belanja", "Pembayaran Online"],
+  },
+  {
+    id: "rkk-petshop",
+    title: "RKK Petshop — Toko Hewan Peliharaan",
+    desc: "Toko online perlengkapan hewan peliharaan dengan layanan grooming dan penjualan hewan.",
+    url: "https://rkk-petshop.vercel.app",
+    stack: ["Next.js", "TypeScript", "Tailwind"],
+    category: "E-Commerce",
+    gradient: "from-emerald-600/20 via-green-500/10 to-lime-600/20",
+    accentColor: "emerald",
+    features: ["Katalog Produk", "Layanan Grooming", "Reservasi Online"],
+  },
+  {
+    id: "rpsncsubang",
+    title: "RPSNC Subang — Portal Berita",
+    desc: "Portal berita dan informasi RPSNC Subang dengan sistem manajemen konten modern.",
+    url: "https://rpsncsubang.vercel.app",
+    stack: ["Next.js", "TypeScript", "Tailwind"],
+    category: "Portal Berita",
+    gradient: "from-sky-600/20 via-blue-500/10 to-indigo-600/20",
+    accentColor: "sky",
+    features: ["Manajemen Berita", "Multi Halaman", "Responsive Design"],
+  },
+];
+
+// ===== DUMMY PROJECTS =====
+const dummyProjects = [
+  {
+    id: 6,
     slug: "absensi-guru",
     title: "Absensi Guru",
     desc: "Sistem absensi guru berbasis web.",
@@ -47,7 +120,7 @@ const projects = [
     category: "Absensi",
   },
   {
-    id: 2,
+    id: 7,
     slug: "absensi-karyawan-gps-barcode",
     title: "Absensi Karyawan GPS Barcode",
     desc: "Sistem absensi karyawan dengan GPS dan barcode.",
@@ -55,7 +128,7 @@ const projects = [
     category: "Absensi",
   },
   {
-    id: 3,
+    id: 8,
     slug: "absensi-kelas-sederhana",
     title: "Absensi Kelas Sederhana",
     desc: "Aplikasi absensi kelas sederhana.",
@@ -63,7 +136,7 @@ const projects = [
     category: "Sekolah",
   },
   {
-    id: 4,
+    id: 9,
     slug: "aplikasi-absensi-karyawan",
     title: "Aplikasi Absensi Karyawan",
     desc: "Manajemen absensi pegawai perusahaan.",
@@ -71,7 +144,7 @@ const projects = [
     category: "Absensi",
   },
   {
-    id: 5,
+    id: 10,
     slug: "aplikasi-antrian-sederhana",
     title: "Aplikasi Antrian Sederhana",
     desc: "Sistem antrian digital sederhana.",
@@ -79,7 +152,7 @@ const projects = [
     category: "Pelayanan",
   },
   {
-    id: 6,
+    id: 11,
     slug: "aplikasi-cuti-karyawan",
     title: "Aplikasi Cuti Karyawan",
     desc: "Manajemen pengajuan cuti pegawai.",
@@ -87,7 +160,7 @@ const projects = [
     category: "HR",
   },
   {
-    id: 7,
+    id: 12,
     slug: "aplikasi-e-surat-desa",
     title: "Aplikasi E-Surat Desa",
     desc: "Pengelolaan surat menyurat desa.",
@@ -95,7 +168,7 @@ const projects = [
     category: "Pemerintahan",
   },
   {
-    id: 8,
+    id: 13,
     slug: "aplikasi-hr-karyawan",
     title: "Aplikasi HR Karyawan",
     desc: "Human resource management system.",
@@ -103,7 +176,7 @@ const projects = [
     category: "HR",
   },
   {
-    id: 9,
+    id: 14,
     slug: "aplikasi-management-inventaris",
     title: "Aplikasi Management Inventaris",
     desc: "Sistem pengelolaan inventaris barang.",
@@ -111,7 +184,7 @@ const projects = [
     category: "Inventory",
   },
   {
-    id: 10,
+    id: 15,
     slug: "aplikasi-smart-hr",
     title: "Aplikasi Smart HR",
     desc: "Platform HR modern dengan fitur otomatisasi.",
@@ -119,7 +192,7 @@ const projects = [
     category: "HR",
   },
   {
-    id: 11,
+    id: 16,
     slug: "booking-futsal",
     title: "Booking Futsal",
     desc: "Reservasi lapangan futsal online.",
@@ -127,7 +200,7 @@ const projects = [
     category: "Booking",
   },
   {
-    id: 12,
+    id: 17,
     slug: "cms-portal-berita",
     title: "CMS Portal Berita",
     desc: "Content management system portal berita.",
@@ -135,7 +208,7 @@ const projects = [
     category: "CMS",
   },
   {
-    id: 13,
+    id: 18,
     slug: "ecommerce-fashion",
     title: "E-Commerce Fashion",
     desc: "Toko online fashion modern.",
@@ -143,7 +216,7 @@ const projects = [
     category: "E-Commerce",
   },
   {
-    id: 14,
+    id: 19,
     slug: "ecommerce-tumbuhan",
     title: "E-Commerce Tumbuhan",
     desc: "Marketplace tanaman hias.",
@@ -151,7 +224,7 @@ const projects = [
     category: "E-Commerce",
   },
   {
-    id: 15,
+    id: 20,
     slug: "ecommerce-with-midtrans",
     title: "E-Commerce With Midtrans",
     desc: "E-commerce dengan integrasi pembayaran Midtrans.",
@@ -159,7 +232,7 @@ const projects = [
     category: "E-Commerce",
   },
   {
-    id: 16,
+    id: 21,
     slug: "e-office",
     title: "E-Office",
     desc: "Sistem administrasi kantor digital.",
@@ -167,7 +240,7 @@ const projects = [
     category: "Office",
   },
   {
-    id: 17,
+    id: 22,
     slug: "e-todolist",
     title: "E-Todolist",
     desc: "Aplikasi manajemen tugas harian.",
@@ -175,7 +248,7 @@ const projects = [
     category: "Produktivitas",
   },
   {
-    id: 18,
+    id: 23,
     slug: "hris",
     title: "HRIS",
     desc: "Human Resource Information System.",
@@ -183,7 +256,7 @@ const projects = [
     category: "HR",
   },
   {
-    id: 19,
+    id: 24,
     slug: "inventory",
     title: "Inventory",
     desc: "Manajemen stok dan barang.",
@@ -191,7 +264,7 @@ const projects = [
     category: "Inventory",
   },
   {
-    id: 20,
+    id: 25,
     slug: "kasir-restoran-sederhana",
     title: "Kasir Restoran Sederhana",
     desc: "Point of sale restoran sederhana.",
@@ -199,7 +272,7 @@ const projects = [
     category: "POS",
   },
   {
-    id: 21,
+    id: 26,
     slug: "learning-management-system",
     title: "Learning Management System",
     desc: "Platform pembelajaran online.",
@@ -207,7 +280,7 @@ const projects = [
     category: "Education",
   },
   {
-    id: 22,
+    id: 27,
     slug: "medical-checkup",
     title: "Medical Checkup",
     desc: "Sistem pemeriksaan kesehatan digital.",
@@ -215,7 +288,7 @@ const projects = [
     category: "Kesehatan",
   },
   {
-    id: 23,
+    id: 28,
     slug: "point-of-sale",
     title: "Point Of Sale",
     desc: "Sistem kasir modern.",
@@ -223,7 +296,7 @@ const projects = [
     category: "POS",
   },
   {
-    id: 24,
+    id: 29,
     slug: "siakad",
     title: "SIAKAD",
     desc: "Sistem informasi akademik.",
@@ -231,7 +304,7 @@ const projects = [
     category: "Education",
   },
   {
-    id: 25,
+    id: 30,
     slug: "siakad-smp",
     title: "SIAKAD SMP",
     desc: "Sistem akademik khusus SMP.",
@@ -239,7 +312,7 @@ const projects = [
     category: "Education",
   },
   {
-    id: 26,
+    id: 31,
     slug: "sistem-absensi-sekolah",
     title: "Sistem Absensi Sekolah",
     desc: "Absensi siswa dan guru sekolah.",
@@ -247,7 +320,7 @@ const projects = [
     category: "Sekolah",
   },
   {
-    id: 27,
+    id: 32,
     slug: "sistem-antrian-puskesmas",
     title: "Sistem Antrian Puskesmas",
     desc: "Digitalisasi antrian layanan kesehatan.",
@@ -255,7 +328,7 @@ const projects = [
     category: "Kesehatan",
   },
   {
-    id: 28,
+    id: 33,
     slug: "sistem-informasi-desa",
     title: "Sistem Informasi Desa",
     desc: "Website dan layanan administrasi desa.",
@@ -263,7 +336,7 @@ const projects = [
     category: "Pemerintahan",
   },
   {
-    id: 29,
+    id: 34,
     slug: "sistem-management-perpustakaan-digital",
     title: "Sistem Management Perpustakaan Digital",
     desc: "Perpustakaan digital modern.",
@@ -271,7 +344,7 @@ const projects = [
     category: "Education",
   },
   {
-    id: 30,
+    id: 35,
     slug: "website-company-profile",
     title: "Website Company Profile",
     desc: "Website profil perusahaan profesional.",
@@ -279,7 +352,7 @@ const projects = [
     category: "Company Profile",
   },
   {
-    id: 31,
+    id: 36,
     slug: "website-donasi",
     title: "Website Donasi",
     desc: "Platform penggalangan dana online.",
@@ -287,7 +360,7 @@ const projects = [
     category: "Donasi",
   },
   {
-    id: 32,
+    id: 37,
     slug: "web-klinik",
     title: "Web Klinik",
     desc: "Sistem layanan klinik digital.",
@@ -295,7 +368,7 @@ const projects = [
     category: "Kesehatan",
   },
   {
-    id: 33,
+    id: 38,
     slug: "web-klinik-gigi",
     title: "Web Klinik Gigi",
     desc: "Aplikasi manajemen klinik gigi.",
@@ -309,9 +382,9 @@ const filterOptions = [
   "Next.js",
   "Laravel",
   "TypeScript",
-  "Python",
   "React",
-  "IoT",
+  "Portfolio",
+  "E-Commerce",
 ];
 
 const processProjects = [
@@ -359,16 +432,77 @@ const processProjects = [
   },
 ];
 
+const accentColors: Record<
+  string,
+  { text: string; bg: string; border: string; glow: string }
+> = {
+  amber: {
+    text: "text-amber-300",
+    bg: "bg-amber-500/10",
+    border: "border-amber-500/30",
+    glow: "bg-amber-500/20",
+  },
+  violet: {
+    text: "text-violet-300",
+    bg: "bg-violet-500/10",
+    border: "border-violet-500/30",
+    glow: "bg-violet-500/20",
+  },
+  cyan: {
+    text: "text-cyan-300",
+    bg: "bg-cyan-500/10",
+    border: "border-cyan-500/30",
+    glow: "bg-cyan-500/20",
+  },
+  emerald: {
+    text: "text-emerald-300",
+    bg: "bg-emerald-500/10",
+    border: "border-emerald-500/30",
+    glow: "bg-emerald-500/20",
+  },
+  sky: {
+    text: "text-sky-300",
+    bg: "bg-sky-500/10",
+    border: "border-sky-500/30",
+    glow: "bg-sky-500/20",
+  },
+};
+
+const featureIcons = [
+  Globe,
+  Monitor,
+  Smartphone,
+  Palette,
+  Zap,
+  Shield,
+  BarChart3,
+  Layers,
+];
+
 export default function DemoPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [activeFilter, setActiveFilter] = useState("All");
+  const [hoveredReal, setHoveredReal] = useState<string | null>(null);
 
-  const filteredProjects = projects.filter((p) => {
+  const filteredDummy = dummyProjects.filter((p) => {
     const matchesSearch = p.title
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
     const matchesFilter =
-      activeFilter === "All" || p.stack.includes(activeFilter);
+      activeFilter === "All" ||
+      p.stack.includes(activeFilter) ||
+      p.category.includes(activeFilter);
+    return matchesSearch && matchesFilter;
+  });
+
+  const filteredReal = realProjects.filter((p) => {
+    const matchesSearch = p.title
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+    const matchesFilter =
+      activeFilter === "All" ||
+      p.stack.includes(activeFilter) ||
+      p.category.includes(activeFilter);
     return matchesSearch && matchesFilter;
   });
 
@@ -377,6 +511,7 @@ export default function DemoPage() {
       {/* BACKGROUND GLOWS */}
       <div className="fixed top-0 left-1/4 w-96 h-96 bg-[#d4af37]/5 rounded-full blur-[120px] -z-10" />
       <div className="fixed bottom-0 right-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-[120px] -z-10" />
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-amber-600/5 via-purple-600/5 to-cyan-600/5 rounded-full blur-[150px] -z-10" />
 
       <div className="pt-10 px-8 max-w-7xl mx-auto">
         <header className="mb-20 text-center">
@@ -387,7 +522,7 @@ export default function DemoPage() {
             <Badge className="bg-[#d4af37]/10 text-[#d4af37] border-[#d4af37]/20 mb-4 px-4 py-1 rounded-full uppercase tracking-widest text-[10px] font-bold">
               Premium Showcase
             </Badge>
-            <h1 className="text-5xl md:text-6xl font-extrabold bg-clip-text  mb-6 tracking-tighter leading-[1.1] bg-[#d4af37]/10 border-[#d4af37] text-[#d4af37] shadow-none">
+            <h1 className="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-amber-200 via-[#d4af37] to-amber-100 mb-6 tracking-tighter leading-[1.1]">
               PROJECT SHOWROOM
             </h1>
             <p className="text-white/50 max-w-2xl mx-auto mb-12 text-lg leading-relaxed">
@@ -396,7 +531,7 @@ export default function DemoPage() {
             </p>
           </motion.div>
 
-          {/* SEARCH BAR - Luxury Glassmorphism */}
+          {/* SEARCH BAR */}
           <div className="relative max-w-2xl mx-auto mb-12">
             <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-[#d4af37] w-5 h-5" />
             <input
@@ -407,7 +542,7 @@ export default function DemoPage() {
             />
           </div>
 
-          {/* FILTER BUTTONS - Styled like Navbar buttons */}
+          {/* FILTER BUTTONS */}
           <div className="flex flex-wrap justify-center gap-3">
             {filterOptions.map((stack) => (
               <motion.button
@@ -417,26 +552,260 @@ export default function DemoPage() {
                 onClick={() => setActiveFilter(stack)}
                 className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 border flex items-center gap-2 ${
                   activeFilter === stack
-                    ? // Ganti bagian activeFilter === stack dengan ini:
-                      "bg-[#d4af37]/10 border-[#d4af37] text-[#d4af37] shadow-none"
+                    ? "bg-[#d4af37]/10 border-[#d4af37] text-[#d4af37] shadow-none"
                     : "bg-white/5 border-white/10 text-white/50 hover:border-[#d4af37]/50 hover:text-white"
                 }`}
               >
-                {stack !== "All" && (
-                  <Image
-                    width={20}
-                    height={20}
-                    src={getTechIcon(stack)}
-                    alt={stack}
-                    className="w-4 h-4 object-contain brightness-110"
-                  />
-                )}
+                {stack !== "All" &&
+                  stack !== "Portfolio" &&
+                  stack !== "E-Commerce" && (
+                    <Image
+                      width={20}
+                      height={20}
+                      src={getTechIcon(stack)}
+                      alt={stack}
+                      className="w-4 h-4 object-contain brightness-110"
+                    />
+                  )}
                 {stack}
               </motion.button>
             ))}
           </div>
         </header>
 
+        {/* ===== REAL PROJECTS SECTION ===== */}
+        {filteredReal.length > 0 && (
+          <section className="mb-24">
+            <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+              <div>
+                <Badge className="mb-4 bg-amber-500/10 text-amber-300 border-amber-400/20 px-4 py-1 rounded-full uppercase tracking-widest text-[10px] font-bold">
+                  ★ Featured Projects
+                </Badge>
+                <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+                  Project Aktif & Live
+                </h2>
+                <p className="mt-3 max-w-2xl text-white/45 leading-relaxed">
+                  Klik card untuk melihat langsung website yang sudah online dan
+                  bisa diakses publik.
+                </p>
+              </div>
+              <div className="hidden md:flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white/45">
+                <Globe className="w-4 h-4 text-emerald-400" />
+                Live on Vercel
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredReal.map((project, index) => {
+                const colors =
+                  accentColors[project.accentColor] || accentColors.amber;
+                return (
+                  <motion.div
+                    key={project.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    onMouseEnter={() => setHoveredReal(project.id)}
+                    onMouseLeave={() => setHoveredReal(null)}
+                  >
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] transition-all duration-700 hover:scale-[1.02] hover:-translate-y-2"
+                    >
+                      {/* Animated gradient background */}
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700`}
+                      />
+                      {/* Glow effect on hover */}
+                      <div
+                        className={`absolute -inset-1 bg-gradient-to-r ${project.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 -z-10`}
+                      />
+
+                      {/* Browser mockup bar */}
+                      <div className="relative px-5 pt-5 pb-3">
+                        <div className="flex items-center gap-2 mb-4">
+                          <div className="flex gap-1.5">
+                            <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                            <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                            <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                          </div>
+                          <div className="flex-1 mx-3">
+                            <div className="bg-white/5 rounded-full px-3 py-1.5 flex items-center gap-2">
+                              <Globe className="w-3 h-3 text-white/30" />
+                              <span className="text-[10px] text-white/30 truncate font-mono">
+                                {project.url.replace("https://", "")}
+                              </span>
+                            </div>
+                          </div>
+                          <ExternalLink className="w-4 h-4 text-white/30 group-hover:text-white transition-colors" />
+                        </div>
+
+                        {/* Live Website Preview Area */}
+                        <div
+                          className={`relative rounded-xl overflow-hidden h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}
+                        >
+                          <div className="absolute inset-0 overflow-hidden">
+                            <div
+                              className={`absolute -top-10 -right-10 w-32 h-32 ${colors.glow} rounded-full blur-3xl animate-pulse`}
+                            />
+                            <div
+                              className={`absolute -bottom-10 -left-10 w-32 h-32 ${colors.glow} rounded-full blur-3xl animate-pulse delay-1000`}
+                            />
+                          </div>
+                          <div className="relative z-10 text-center px-6">
+                            <div
+                              className={`w-16 h-16 mx-auto mb-4 rounded-2xl ${colors.bg} ${colors.border} border flex items-center justify-center`}
+                            >
+                              <Globe className={`w-8 h-8 ${colors.text}`} />
+                            </div>
+                            <h3
+                              className={`text-xl font-bold ${colors.text} mb-2`}
+                            >
+                              {project.title.split("—")[0].trim()}
+                            </h3>
+                            <p className="text-white/50 text-sm mb-4">
+                              {project.title.split("—")[1]?.trim() ||
+                                project.category}
+                            </p>
+                            <div className="flex items-center justify-center gap-1.5">
+                              <div
+                                className={`px-3 py-1 rounded-full ${colors.bg} ${colors.border} border`}
+                              >
+                                <span
+                                  className={`text-[10px] font-bold ${colors.text}`}
+                                >
+                                  Live
+                                </span>
+                              </div>
+                              <div className="flex -space-x-1.5">
+                                {project.stack.slice(0, 3).map((tech) => (
+                                  <div
+                                    key={tech}
+                                    className="w-7 h-7 rounded-full bg-slate-900 border-2 border-slate-950 flex items-center justify-center p-1.5"
+                                    title={tech}
+                                  >
+                                    <Image
+                                      width={28}
+                                      height={28}
+                                      src={getTechIcon(tech)}
+                                      alt={tech}
+                                      className="w-full h-full object-contain"
+                                    />
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Overlay on hover */}
+                          <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                            <motion.div
+                              initial={false}
+                              animate={
+                                hoveredReal === project.id
+                                  ? { scale: 1 }
+                                  : { scale: 0.8 }
+                              }
+                              className="flex flex-col items-center gap-3"
+                            >
+                              <div
+                                className={`p-4 rounded-full ${colors.bg} ${colors.border} border backdrop-blur-sm`}
+                              >
+                                <ExternalLink
+                                  className={`w-8 h-8 ${colors.text}`}
+                                />
+                              </div>
+                              <span
+                                className={`text-sm font-bold ${colors.text} tracking-wider uppercase`}
+                              >
+                                Kunjungi Website
+                              </span>
+                            </motion.div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="px-5 pb-6 relative z-10">
+                        <div className="flex items-center justify-between mb-3">
+                          <Badge
+                            className={`${colors.bg} ${colors.text} ${colors.border} rounded-md px-3 font-mono text-[10px] font-bold`}
+                          >
+                            {project.category}
+                          </Badge>
+                          <div className="flex gap-1">
+                            {[1, 2, 3, 4, 5].map((star) => (
+                              <Star
+                                key={star}
+                                className={`w-3 h-3 ${colors.text} fill-current`}
+                              />
+                            ))}
+                          </div>
+                        </div>
+
+                        <h3
+                          className={`text-xl font-bold text-white mb-2 group-hover:${colors.text} transition-colors leading-snug`}
+                        >
+                          {project.title}
+                        </h3>
+
+                        <p className="text-white/40 text-sm leading-relaxed mb-4 line-clamp-2 font-medium">
+                          {project.desc}
+                        </p>
+
+                        {/* Features */}
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {project.features.map((feature, i) => {
+                            const FeatureIcon =
+                              featureIcons[i % featureIcons.length];
+                            return (
+                              <span
+                                key={feature}
+                                className={`inline-flex items-center gap-1 rounded-md ${colors.bg}/50 px-2 py-1 text-[10px] font-bold uppercase tracking-wider ${colors.text}/70`}
+                              >
+                                <FeatureIcon className="w-3 h-3" />
+                                {feature}
+                              </span>
+                            );
+                          })}
+                        </div>
+
+                        <div className="pt-4 border-t border-white/5 flex items-center justify-between">
+                          <div className="flex -space-x-2">
+                            {project.stack.map((tech) => (
+                              <div
+                                key={tech}
+                                className="w-8 h-8 rounded-full bg-slate-900 border-2 border-slate-950 flex items-center justify-center p-2 hover:z-10 transition-transform hover:scale-125 shadow-2xl"
+                                title={tech}
+                              >
+                                <Image
+                                  width={32}
+                                  height={32}
+                                  src={getTechIcon(tech)}
+                                  alt={tech}
+                                  className="w-full h-full object-contain"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                          <span
+                            className={`text-[10px] font-bold text-white/20 uppercase tracking-[0.2em] group-hover:${colors.text} transition-colors`}
+                          >
+                            Live Demo →
+                          </span>
+                        </div>
+                      </div>
+                    </a>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
+        {/* ===== ON PROCESS SECTION ===== */}
         <section className="mb-24">
           <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div>
@@ -497,13 +866,13 @@ export default function DemoPage() {
           </div>
         </section>
 
-        {/* GRID SECTION */}
+        {/* ===== DUMMY PROJECTS GRID ===== */}
         <motion.div
           layout
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32"
         >
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
+            {filteredDummy.map((project) => (
               <motion.div
                 key={project.id}
                 layout
@@ -523,15 +892,12 @@ export default function DemoPage() {
                           <ChevronRight className="w-4 h-4 text-white group-hover:text-slate-950" />
                         </div>
                       </div>
-
                       <h3 className="text-xl font-bold text-white mb-4 group-hover:text-[#d4af37] transition-colors leading-snug">
                         {project.title}
                       </h3>
-
                       <p className="text-white/40 text-sm leading-relaxed mb-8 line-clamp-3 font-medium">
                         {project.desc}
                       </p>
-
                       <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between">
                         <div className="flex -space-x-3">
                           {project.stack.map((s) => (
@@ -563,15 +929,15 @@ export default function DemoPage() {
         </motion.div>
       </div>
 
-      {/* FOOTER - Matched with Navbar Style */}
+      {/* FOOTER */}
       <footer className="bg-slate-950/80 backdrop-blur-md border-t border-white/10 pt-5 pb-10 px-8 relative overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-5">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-[#d4af37]/10 border-[#d4af37] text-[#d4af37] shadow-none0 rounded-xl flex items-center justify-center font-black text-white ">
+              <div className="w-10 h-10 bg-[#d4af37]/10 border-[#d4af37] text-[#d4af37] rounded-xl flex items-center justify-center font-black text-white">
                 NEXT
               </div>
-              <h2 className="text-2xl font-bold bg-[#d4af37]/10 border-[#d4af37] text-[#d4af37] shadow-none bg-clip-text tracking-tighter">
+              <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-200 via-[#d4af37] to-amber-100 tracking-tighter">
                 NextCore Tangerang
               </h2>
             </div>
