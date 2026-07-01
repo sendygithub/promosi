@@ -49,20 +49,19 @@ export default function LandingPage() {
           transition={{ duration: 0.8 }}
         >
           <Badge className="mb-6 bg-white/5 text-[#d4af37] border-[#d4af37]/20 py-1.5 px-5 rounded-full font-medium tracking-wide">
-            ✨ Partner Skripsi Terpercaya #1
+            Konsultasi skripsi • Pengembangan aplikasi • Servis komputer
           </Badge>
 
           <h1 className="text-3xl md:text-7xl font-bold mb-8 tracking-tight leading-[1.1] text-white">
             Prisma Komputer <br />
-            <span className="text-[#d4af37]">
-              Pendampingan Skripsi IT yang Profesional
-            </span>
+            <span className="text-[#d4af37]">Partner Skripsi & IT Support</span>
           </h1>
 
           <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
-            Membantu mahasiswa menyelesaikan tugas akhir melalui konsultasi,
-            analisis data, dan editing akademik, serta menyediakan layanan
-            servis komputer untuk kebutuhan pribadi maupun bisnis.
+            Kami membantu mahasiswa mengembangkan aplikasi skripsi, memperbaiki
+            bug, menyusun dokumentasi, hingga persiapan sidang. Selain itu
+            tersedia layanan servis komputer dan laptop untuk kebutuhan harian
+            maupun pekerjaan.
           </p>
 
           <div className="flex flex-col md:flex-row gap-5 justify-center items-center">
@@ -93,7 +92,7 @@ export default function LandingPage() {
       {/* TECH STACK - INFINITE MARQUEE ANIMATION */}
       <section className="py-12 border-y border-white/5 bg-slate-900/20 overflow-hidden">
         <p className="text-center text-[20px] font-bold uppercase tracking-[0.3em] text-slate-500 mb-10">
-          Industrial Standard Tech Stack
+          Teknologi yang kami gunakan
         </p>
 
         <div className="relative flex overflow-hidden">
@@ -191,10 +190,11 @@ export default function LandingPage() {
             Layanan
           </Badge>
           <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">
-            Solusi End-to-End
+            Layanan yang tersedia
           </h2>
           <p className="text-slate-500 max-w-md mx-auto font-medium">
-            Proses transparan, kode berkualitas, dan bimbingan hingga sidang.
+            Mulai dari konsultasi, pengembangan aplikasi, hingga penyelesaian
+            revisi.
           </p>
         </div>
 
@@ -255,7 +255,7 @@ export default function LandingPage() {
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="text-left">
               <h2 className="text-4xl font-bold text-white tracking-tight mb-4">
-                Project Terkini
+                Beberapa project yang pernah dikerjakan
               </h2>
               <p className="text-slate-500 font-medium">
                 Beberapa sistem yang telah sukses dipresentasikan.
@@ -321,11 +321,11 @@ export default function LandingPage() {
       {/* CALL TO ACTION */}
       <section className="px-6 py-40 text-center relative">
         <h2 className="text-5xl font-bold mb-8 text-white tracking-tight">
-          Siap Lulus Semester Ini?
+          Punya project yang ingin didiskusikan?
         </h2>
         <p className="text-slate-400 mb-12 max-w-lg mx-auto font-medium leading-relaxed text-lg">
-          Jangan biarkan revisi teknis menghambat kelulusanmu. <br />
-          Konsultasikan project-mu secara privat.
+          Hubungi kami untuk konsultasi skripsi, pengembangan aplikasi, atau
+          servis komputer. Respon cepat melalui WhatsApp.
         </p>
         <Button
           size="lg"
@@ -354,7 +354,7 @@ export default function LandingPage() {
           </div>
 
           <p className="text-slate-600 text-[13px] font-medium tracking-wide">
-            © 2026 Crafted by Sendy Andreansah.
+            © 2026 Prisma Komputer. All rights reserved.
           </p>
 
           <div className="flex gap-6">

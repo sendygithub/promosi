@@ -78,7 +78,7 @@ const realProjects = [
     id: "oday-aquatic",
     title: "Oday Aquatic — Toko Ikan Hias",
     desc: "Toko online ikan hias dan perlengkapan akuarium dengan sistem belanja modern.",
-    url: "https://oday-aquatic.vercel.app",
+    url: "https://sky-fish.vercel.app",
     stack: ["Next.js", "TypeScript", "Tailwind"],
     category: "E-Commerce",
     gradient: "from-cyan-600/20 via-blue-500/10 to-teal-600/20",
@@ -106,6 +106,17 @@ const realProjects = [
     gradient: "from-sky-600/20 via-blue-500/10 to-indigo-600/20",
     accentColor: "sky",
     features: ["Manajemen Berita", "Multi Halaman", "Responsive Design"],
+  },
+  {
+    id: "Undangan-Ulang-Tahun",
+    title: "Undangan Ulang Tahun",
+    desc: "Aplikasi undangan ulang tahun digital.",
+    url: "https://prisma-komputer.vercel.app/ulangtahun/nama-tamu",
+    stack: ["Next.js", "TypeScript", "Tailwind"],
+    category: "Undangan",
+    gradient: "from-pink-600/20 via-rose-500/10 to-red-600/20",
+    accentColor: "pink",
+    features: ["Desain Menarik", "Customizable", "Responsive Design"],
   },
 ];
 

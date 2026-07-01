@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -29,6 +30,7 @@ import {
   Laptop,
 } from "lucide-react";
 import Link from "next/link";
+import ServisNavbar from "@/app/components/ServisNavbar";
 
 const services = [
   {
@@ -198,22 +200,25 @@ const testimonials = [
 const faqs = [
   {
     q: "Apakah ada garansi untuk servis?",
-    a: "Ya, setiap servis kami berikan garansi 1 bulan untuk spare part yang diganti dan 7 hari untuk jasa servis.",
+    a: "Garansi jasa dan spare part sesuai jenis perbaikan yang dilakukan.",
+    href: "/faq/garansi-servis",
   },
   {
     q: "Berapa lama waktu pengerjaan?",
-    a: "Rata-rata 1-3 hari kerja tergantung kerusakan. Untuk rakit PC biasanya 1-2 hari.",
+    a: "Estimasi pengerjaan tergantung jenis kerusakan dan ketersediaan spare part.",
+    href: "/faq/waktu-pengerjaan",
   },
   {
     q: "Apakah antar jemput benar-benar gratis?",
-    a: "Benar! Gratis antar jemput untuk wilayah Tangerang dan sekitarnya. Silakan hubungi kami.",
+    a: "Layanan antar jemput tersedia untuk area tertentu tanpa biaya tambahan.",
+    href: "/faq/antar-jemput",
   },
   {
     q: "Data saya aman tidak?",
-    a: "Sangat aman. Kami prioritaskan keamanan data. Bahkan kami sarankan backup sebelum servis.",
+    a: "Kami menjaga keamanan data pelanggan selama proses servis berlangsung.",
+    href: "/faq/keamanan-data",
   },
 ];
-
 export default function ServisPage() {
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -238,6 +243,9 @@ export default function ServisPage() {
 
   return (
     <main className="min-h-screen bg-[#020617] text-slate-200 selection:bg-[#d4af37]/20 overflow-x-hidden">
+      {/* ===== NAVBAR ===== */}
+      <ServisNavbar />
+
       {/* ===== AMBIENT GLOW BACKGROUNDS ===== */}
       <div className="fixed top-0 -left-10 w-[500px] h-[500px] bg-[#d4af37]/5 rounded-full blur-[150px] -z-10" />
       <div className="fixed bottom-0 -right-10 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[150px] -z-10" />
@@ -360,53 +368,89 @@ export default function ServisPage() {
         </motion.div>
       </section>
 
-      {/* ===== STATS BAR ===== */}
-      <section className="border-y border-white/5 bg-gradient-to-r from-transparent via-slate-900/40 to-transparent py-12">
-        <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {[
-            {
-              angka: "50+",
-              label: "PC Rakit",
-              icon: <Cpu className="w-4 h-4" />,
-            },
-            {
-              angka: "100+",
-              label: "Servis Selesai",
-              icon: <CheckCircle2 className="w-4 h-4" />,
-            },
-            {
-              angka: "5+",
-              label: "Tahun Pengalaman",
-              icon: <Award className="w-4 h-4" />,
-            },
-            {
-              angka: "98%",
-              label: "Kepuasan",
-              icon: <Star className="w-4 h-4" />,
-            },
-          ].map((stat, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="relative group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-b from-[#d4af37]/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative">
-                <div className="w-10 h-10 rounded-full bg-[#d4af37]/10 flex items-center justify-center mx-auto mb-3 text-[#d4af37]">
-                  {stat.icon}
-                </div>
-                <p className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-white to-slate-400 bg-clip-text text-transparent">
-                  {stat.angka}
-                </p>
-                <p className="text-sm text-slate-500 font-medium mt-1">
-                  {stat.label}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+      {/* ===== DOCUMENTATION GALLERY ===== */}
+      <section
+        id="dokumentasi"
+        className="border-y border-white/5 bg-gradient-to-b from-slate-900/20 to-transparent py-24"
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-14">
+            <p className="text-[#d4af37] text-sm uppercase tracking-[0.25em] mb-3">
+              Dokumentasi
+            </p>
+
+            <h2 className="text-4xl md:text-5xl font-bold text-white">
+              Hasil pekerjaan kami
+            </h2>
+
+            <p className="text-slate-400 mt-5 max-w-2xl mx-auto leading-relaxed">
+              Beberapa dokumentasi saat melakukan servis laptop, upgrade
+              hardware, perakitan PC, instalasi sistem operasi, dan maintenance
+              komputer.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {[
+              {
+                src: "/servis/servis 1.jpeg",
+                label: "Perbaikan Hardware",
+                category: "perbaikan-hardware",
+              },
+              {
+                src: "/servis/servis 2.jpeg",
+                label: "Instalasi Software",
+                category: "instalasi-software",
+              },
+              {
+                src: "/servis/servis 3.jpeg",
+                label: "Fix Problem Sistem BlueScreen",
+                category: "fix-bluescreen",
+              },
+              {
+                src: "/servis/servis 4.jpeg",
+                label: "Upgrade Komponen",
+                category: "upgrade-komponen",
+              },
+              {
+                src: "/servis/servis 5.jpeg",
+                label: "Perbaikan Laptop",
+                category: "perbaikan-laptop",
+              },
+              {
+                src: "/servis/servis 6.jpeg",
+                label: "Lihat Semua Dokumentasi",
+                category: "all",
+              },
+            ].map((item, index) => (
+              <Link
+                key={index}
+                href={`/servis/gallery${item.category !== "all" ? `?category=${item.category}` : ""}`}
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                  className="group relative overflow-hidden rounded-3xl border border-white/5 aspect-[4/3] cursor-pointer"
+                >
+                  <Image
+                    src={item.src}
+                    alt={item.label}
+                    fill
+                    className="object-cover transition duration-700 group-hover:scale-110"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
+
+                  <div className="absolute bottom-5 left-5 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-500">
+                    <p className="text-white font-semibold">{item.label}</p>
+                    <p className="text-sm text-slate-300">Klik untuk melihat</p>
+                  </div>
+                </motion.div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -476,7 +520,10 @@ export default function ServisPage() {
       </section>
 
       {/* ===== KENAPA PILIH KAMI ===== */}
-      <section className="px-6 py-28 bg-gradient-to-b from-white/[0.01] to-transparent border-y border-white/5 relative overflow-hidden">
+      <section
+        id="keunggulan"
+        className="px-6 py-28 bg-gradient-to-b from-white/[0.01] to-transparent border-y border-white/5 relative overflow-hidden"
+      >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#d4af37]/5 via-transparent to-transparent -z-10" />
 
         <div className="max-w-7xl mx-auto">
@@ -530,7 +577,7 @@ export default function ServisPage() {
       </section>
 
       {/* ===== TESTIMONIALS ===== */}
-      <section className="px-6 py-28 max-w-7xl mx-auto">
+      <section id="testimoni" className="px-6 py-28 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -599,50 +646,65 @@ export default function ServisPage() {
       </section>
 
       {/* ===== FAQ ===== */}
-      <section className="px-6 py-28 bg-gradient-to-b from-transparent to-white/[0.01] border-y border-white/5">
+      <section
+        id="faq"
+        className="px-6 py-28 bg-gradient-to-b from-transparent to-white/[0.01] border-y border-white/5"
+      >
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <Badge className="mb-4 bg-gradient-to-r from-amber-500/10 to-rose-500/10 text-amber-300 border-amber-400/20 px-4 py-1.5 text-[10px] uppercase tracking-widest rounded-full">
+              ❓ FAQ
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-slate-500 max-w-lg mx-auto font-medium">
+              kami memberikan penjelasan lengkap untuk pertanyaan yang sering
+              diajukan.
+            </p>
+          </motion.div>
+        </div>
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-16">
+          {faqs.map((faq, i) => (
             <motion.div
+              key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
             >
-              <Badge className="mb-4 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 text-cyan-300 border-cyan-400/20 px-4 py-1.5 text-[10px] uppercase tracking-widest rounded-full">
-                ❓ FAQ
-              </Badge>
-              <h2 className="text-4xl font-bold text-white tracking-tight mb-4">
-                Pertanyaan Umum
-              </h2>
-              <p className="text-slate-500 max-w-lg mx-auto font-medium">
-                Sebelum hubungi kami, mungkin pertanyaan ini bisa membantu.
-              </p>
-            </motion.div>
-          </div>
-
-          <div className="space-y-4">
-            {faqs.map((faq, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-[#0f172a]/40 border border-white/5 rounded-xl p-6 hover:border-[#d4af37]/20 transition-all duration-500 group"
+              <Link
+                href={faq.href}
+                className="group flex items-center justify-between rounded-2xl border border-white/5 bg-[#0f172a]/40 p-6 transition-all duration-300 hover:border-[#d4af37]/30 hover:bg-[#111c31]"
               >
-                <h3 className="text-white font-bold mb-2 group-hover:text-[#d4af37] transition-colors">
-                  {faq.q}
-                </h3>
-                <p className="text-slate-400 text-sm leading-relaxed font-medium">
-                  {faq.a}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+                <div className="pr-6">
+                  <h3 className="text-lg font-semibold text-white transition-colors group-hover:text-[#d4af37]">
+                    {faq.q}
+                  </h3>
+
+                  <p className="mt-2 text-sm leading-relaxed text-slate-400">
+                    {faq.a}
+                  </p>
+                </div>
+
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 group-hover:border-[#d4af37]/40 group-hover:bg-[#d4af37]/10">
+                  <ArrowRight className="h-5 w-5 text-slate-400 transition-all duration-300 group-hover:translate-x-1 group-hover:text-[#d4af37]" />
+                </div>
+              </Link>
+            </motion.div>
+          ))}
         </div>
       </section>
 
       {/* ===== CTA SECTION ===== */}
-      <section className="px-6 py-32 text-center relative overflow-hidden">
+      <section
+        id="konsultasi"
+        className="px-6 py-32 text-center relative overflow-hidden"
+      >
         <div className="absolute inset-0 bg-gradient-to-b from-[#d4af37]/5 via-transparent to-transparent -z-10" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#d4af37]/5 rounded-full blur-[120px] -z-10" />
 
