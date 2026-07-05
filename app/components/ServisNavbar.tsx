@@ -72,46 +72,46 @@ export default function ServisNavbar() {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out px-4 md:px-6 py-3 ${
         isScrolled
-          ? "md:top-4 md:mx-auto md:max-w-6xl md:rounded-full border-white/10 bg-slate-900/70 backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.8)] border"
-          : "bg-gradient-to-b from-slate-900/80 to-transparent border-b border-transparent"
+          ? "md:top-4 md:mx-auto md:max-w-6xl md:rounded-sm border-white/[0.06] bg-[#141619]/80 backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.8)] border"
+          : "bg-gradient-to-b from-black/80 to-transparent border-b border-transparent"
       }`}
     >
       {/* Scroll Progress Indicator */}
       <motion.div
-        className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#d4af37] to-amber-500 origin-left z-[60]"
+        className="absolute top-0 left-0 right-0 h-[2px] bg-[#1C69D4] origin-left z-[60]"
         style={{ scaleX }}
       />
 
       <div className="flex items-center justify-between relative z-10">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-9 h-9 bg-gradient-to-br from-[#d4af37] to-amber-600 rounded-xl flex items-center justify-center font-black text-white shadow-lg shadow-[#d4af37]/20 group-hover:rotate-12 transition-transform duration-300">
+          <div className="w-9 h-9 bg-[#1C69D4] flex items-center justify-center font-semibold text-white text-[14px]">
             P
           </div>
           <div className="hidden sm:block">
-            <span className="text-base font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent tracking-tighter">
+            <span className="text-[15px] font-semibold text-white tracking-tight">
               Prisma Komputer
             </span>
           </div>
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-1 bg-white/5 p-1 rounded-full border border-white/5 backdrop-blur-md">
+        <div className="hidden md:flex items-center gap-1 bg-white/[0.03] p-1 border border-white/[0.06]">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-full ${
+              className={`relative px-4 py-2 text-[13px] font-medium transition-colors duration-300 ${
                 activeSection === link.href.replace("#", "")
                   ? "text-white"
-                  : "text-slate-400 hover:text-[#d4af37]"
+                  : "text-[#A8B0BC] hover:text-white"
               }`}
             >
               {activeSection === link.href.replace("#", "") && (
                 <motion.div
                   layoutId="servis-nav-active"
-                  className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/20 to-amber-500/20 border border-[#d4af37]/30 rounded-full -z-10 shadow-[0_0_15px_rgba(212,175,55,0.2)]"
+                  className="absolute inset-0 bg-[#1C69D4]/10 border border-[#1C69D4]/30 -z-10"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
@@ -126,8 +126,8 @@ export default function ServisNavbar() {
             href="https://wa.me/6281233445566?text=Halo%20Prisma%20Komputer%2C%20saya%20mau%20konsultasi%20servis"
             target="_blank"
           >
-            <Button className="hidden sm:flex bg-gradient-to-r from-[#d4af37] to-amber-500 hover:from-amber-500 hover:to-[#d4af37] text-slate-950 font-bold rounded-full px-5 py-2 text-sm shadow-lg shadow-[#d4af37]/20 border-none items-center gap-2">
-              <MessageCircle className="w-4 h-4 fill-current" />
+            <Button className="hidden sm:flex bg-[#1C69D4] text-white hover:bg-[#1C69D4]/90 font-medium rounded-sm px-5 py-2 text-[13px] border-none items-center gap-2">
+              <MessageCircle className="w-4 h-4" />
               <span className="hidden lg:inline">Konsultasi</span>
             </Button>
           </Link>
@@ -135,7 +135,7 @@ export default function ServisNavbar() {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 transition-all"
+            className="md:hidden flex items-center justify-center w-10 h-10 bg-white/[0.03] border border-white/[0.06] text-[#A8B0BC] hover:text-white hover:bg-white/[0.06] transition-all"
           >
             {mobileOpen ? (
               <X className="w-5 h-5" />
@@ -152,7 +152,7 @@ export default function ServisNavbar() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="md:hidden mt-3 rounded-2xl border border-white/10 bg-slate-900/95 backdrop-blur-2xl p-4 shadow-xl"
+          className="md:hidden mt-3 border border-white/[0.06] bg-black/95 backdrop-blur-2xl p-4 shadow-xl"
         >
           <div className="flex flex-col gap-1">
             {navLinks.map((link, i) => (
@@ -160,40 +160,37 @@ export default function ServisNavbar() {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all ${
+                className={`flex items-center justify-between px-4 py-3 text-[13px] font-medium transition-all ${
                   activeSection === link.href.replace("#", "")
-                    ? "text-[#d4af37] bg-[#d4af37]/10"
-                    : "text-slate-300 hover:text-white hover:bg-white/5"
+                    ? "text-white bg-[#1C69D4]/10"
+                    : "text-[#A8B0BC] hover:text-white hover:bg-white/[0.03]"
                 }`}
               >
                 {link.name}
                 <ChevronDown
                   className={`w-4 h-4 transition-transform ${
                     activeSection === link.href.replace("#", "")
-                      ? "rotate-[-90deg] text-[#d4af37]"
-                      : "text-slate-500"
+                      ? "rotate-[-90deg] text-[#1C69D4]"
+                      : "text-[#A8B0BC]/50"
                   }`}
                 />
               </a>
             ))}
           </div>
 
-          <div className="mt-4 pt-4 border-t border-white/5">
+          <div className="mt-4 pt-4 border-t border-white/[0.06]">
             <Link
               href="https://wa.me/6281233445566?text=Halo%20Prisma%20Komputer%2C%20saya%20mau%20konsultasi%20servis"
               target="_blank"
             >
-              <Button className="w-full bg-gradient-to-r from-[#d4af37] to-amber-500 text-slate-950 font-bold rounded-xl py-6 text-base shadow-lg shadow-[#d4af37]/20">
-                <MessageCircle className="w-5 h-5 mr-2 fill-current" />
+              <Button className="w-full bg-[#1C69D4] text-white hover:bg-[#1C69D4]/90 font-medium py-5 text-[14px] rounded-sm">
+                <MessageCircle className="w-5 h-5 mr-2" />
                 Konsultasi Gratis
               </Button>
             </Link>
           </div>
         </motion.div>
       )}
-
-      {/* Noise Texture Overlay */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.02] mix-blend-overlay" />
     </motion.nav>
   );
 }

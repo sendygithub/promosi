@@ -61,7 +61,7 @@ export default function MoodMochiPage() {
           {currentMood.emoji}
         </div>
 
-        <p className="text-xl md:text-2xl font-medium text-gray-800 bg-white/75 backdrop-blur-md p-6 md:p-8 rounded-2xl shadow-xl border border-white/40">
+        <p className="text-xl md:text-2xl font-medium text-white bg-black/40 backdrop-blur-md p-6 md:p-8 border border-white/[0.06]">
           {currentMood.text}
         </p>
 
@@ -73,9 +73,10 @@ export default function MoodMochiPage() {
               className={`
                 px-6 py-3 rounded-full font-semibold text-base sm:text-lg shadow-md
                 transition-all duration-300 transform
-                ${mood === key
-                  ? "scale-110 ring-4 ring-white/60 shadow-2xl"
-                  : "opacity-85 hover:opacity-100 hover:scale-105 active:scale-95"
+                ${
+                  mood === key
+                    ? "scale-110 ring-4 ring-white/60 shadow-2xl"
+                    : "opacity-85 hover:opacity-100 hover:scale-105 active:scale-95"
                 }
                 bg-gray-800/85 hover:bg-gray-900/95 text-white border border-gray-700/50
               `}

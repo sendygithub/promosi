@@ -54,7 +54,7 @@ async function getMovies(): Promise<Movie[]> {
           "X-RapidAPI-Host": "imdb236.p.rapidapi.com",
         },
         next: { revalidate: 3600 },
-      }
+      },
     );
 
     if (!res.ok) {
@@ -83,8 +83,10 @@ export default async function MoviesPage() {
   return (
     <main className="mx-auto max-w-7xl px-6 py-10">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Filmografi</h1>
-        <p className="mt-1 text-gray-500">
+        <h1 className="text-3xl font-bold tracking-tight text-white">
+          Filmografi
+        </h1>
+        <p className="mt-1 text-[#A8B0BC]">
           Daftar judul film dari API IMDb, dengan fallback lokal jika API belum
           dikonfigurasi.
         </p>
@@ -94,9 +96,9 @@ export default async function MoviesPage() {
         {movies.map((movie) => (
           <article
             key={movie.id}
-            className="group overflow-hidden rounded-xl border bg-white shadow-sm transition hover:shadow-xl"
+            className="group overflow-hidden border border-white/[0.06] bg-[#141619] transition hover:border-white/[0.12] hover:-translate-y-1 duration-500"
           >
-            <div className="relative aspect-[2/3] bg-gray-100">
+            <div className="relative aspect-[2/3] bg-[#0D0E10]">
               {movie.primaryImage ? (
                 <Image
                   src={movie.primaryImage}
@@ -107,24 +109,24 @@ export default async function MoviesPage() {
                   className="object-cover transition-transform group-hover:scale-105"
                 />
               ) : (
-                <div className="absolute inset-0 flex items-center justify-center px-4 text-center text-sm font-semibold text-gray-400">
+                <div className="absolute inset-0 flex items-center justify-center px-4 text-center text-sm font-semibold text-[#A8B0BC]/30">
                   No Image
                 </div>
               )}
 
-              <span className="absolute left-2 top-2 rounded bg-black/70 px-2 py-1 text-xs text-white">
+              <span className="absolute left-2 top-2 bg-black/70 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-[#A8B0BC]">
                 {movie.type.toUpperCase()}
               </span>
             </div>
 
             <div className="space-y-2 p-4">
-              <h2 className="line-clamp-2 font-semibold leading-tight">
+              <h2 className="line-clamp-2 font-semibold leading-tight text-white">
                 {movie.primaryTitle}
               </h2>
-              <p className="line-clamp-2 text-sm text-gray-500">
+              <p className="line-clamp-2 text-[13px] text-[#A8B0BC]">
                 {movie.description ?? "Deskripsi tidak tersedia."}
               </p>
-              <div className="flex items-center justify-between pt-1 text-xs text-gray-400">
+              <div className="flex items-center justify-between pt-1 text-[12px] text-[#A8B0BC]/50">
                 <span>{movie.startYear ?? "-"}</span>
               </div>
               {movie.genres.length > 0 && (
@@ -132,7 +134,7 @@ export default async function MoviesPage() {
                   {movie.genres.slice(0, 3).map((genre) => (
                     <span
                       key={genre}
-                      className="rounded-full bg-blue-50 px-2 py-0.5 text-[10px] text-blue-700"
+                      className="px-2 py-0.5 text-[10px] font-medium text-[#1C69D4] border border-[#1C69D4]/30 bg-[#1C69D4]/10"
                     >
                       {genre}
                     </span>

@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import {
   Rocket,
   Code2,
@@ -32,11 +31,7 @@ export default function LandingPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#020617] text-slate-200 selection:bg-[#d4af37]/20 overflow-x-hidden">
-      {/* SOFT GLOW OVERLAYS - Dibuat lebih redup agar kalem */}
-      <div className="fixed top-0 -left-10 w-96 h-96 bg-[#d4af37]/5 rounded-full blur-[120px] -z-10" />
-      <div className="fixed bottom-0 -right-10 w-96 h-96 bg-blue-900/10 rounded-full blur-[120px] -z-10" />
-
+    <main className="min-h-screen bg-black text-[#A8B0BC] selection:bg-[#1C69D4]/20 overflow-x-hidden">
       {/* NAVBAR PLACEHOLDER */}
       <div className="h-20 w-full" />
       <Navbar />
@@ -48,16 +43,19 @@ export default function LandingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <Badge className="mb-6 bg-white/5 text-[#d4af37] border-[#d4af37]/20 py-1.5 px-5 rounded-full font-medium tracking-wide">
-            Konsultasi skripsi • Pengembangan aplikasi • Servis komputer
-          </Badge>
+          <div className="mb-8">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#A8B0BC]/50">
+              Konsultasi skripsi • Pengembangan aplikasi • Servis komputer
+            </span>
+          </div>
 
-          <h1 className="text-3xl md:text-7xl font-bold mb-8 tracking-tight leading-[1.1] text-white">
-            Prisma Komputer <br />
-            <span className="text-[#d4af37]">Partner Skripsi & IT Support</span>
+          <h1 className="text-[40px] md:text-[80px] font-bold tracking-[-0.02em] leading-[1.05] text-white mb-8">
+            Prisma Komputer
+            <br />
+            <span className="text-[#A8B0BC]">Partner Skripsi & IT Support</span>
           </h1>
 
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
+          <p className="text-[15px] text-[#A8B0BC] max-w-2xl mx-auto mb-12 leading-relaxed">
             Kami membantu mahasiswa mengembangkan aplikasi skripsi, memperbaiki
             bug, menyusun dokumentasi, hingga persiapan sidang. Selain itu
             tersedia layanan servis komputer dan laptop untuk kebutuhan harian
@@ -68,10 +66,10 @@ export default function LandingPage() {
             <Link href="/showroom">
               <Button
                 size="lg"
-                className="bg-[#d4af37] hover:bg-[#b8962f] text-slate-950 font-bold px-10 py-7 text-lg rounded-full transition-all duration-300 shadow-xl shadow-[#d4af37]/10 group"
+                className="bg-[#1C69D4] text-white hover:bg-[#1C69D4]/90 font-medium px-10 py-6 text-[15px]"
               >
                 Pendampingan Skripsi
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>
 
@@ -79,10 +77,10 @@ export default function LandingPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/10 bg-white/5 hover:bg-white/10 hover:border-[#d4af37]/40 px-10 py-7 text-lg rounded-full transition-all duration-300 text-slate-300"
+                className="border-white/[0.12] text-[#A8B0BC] hover:text-white hover:border-white/[0.25] px-10 py-6 text-[15px]"
               >
                 Servis Komputer & Laptop
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>
           </div>
@@ -90,8 +88,8 @@ export default function LandingPage() {
       </section>
 
       {/* TECH STACK - INFINITE MARQUEE ANIMATION */}
-      <section className="py-12 border-y border-white/5 bg-slate-900/20 overflow-hidden">
-        <p className="text-center text-[20px] font-bold uppercase tracking-[0.3em] text-slate-500 mb-10">
+      <section className="py-12 border-y border-white/[0.06] overflow-hidden">
+        <p className="text-center text-[11px] font-semibold uppercase tracking-[0.1em] text-[#A8B0BC]/50 mb-10">
           Teknologi yang kami gunakan
         </p>
 
@@ -99,82 +97,80 @@ export default function LandingPage() {
           <motion.div
             className="flex flex-nowrap gap-10 md:gap-20 items-center"
             animate={{
-              x: [0, -1000], // Sesuaikan angka ini jika stack kamu sangat panjang
+              x: [0, -1000],
             }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 40, // Semakin besar angka, semakin lambat jalannya
+                duration: 40,
                 ease: "linear",
               },
             }}
           >
-            {/* Konten Utama */}
             {[
               {
                 name: "Next.js",
-                icon: <Globe className="w-15 h-15 text-[#d4af37]" />,
+                icon: <Globe className="w-15 h-15 text-[#A8B0BC]" />,
               },
               {
                 name: "TypeScript",
-                icon: <Code2 className="w-15 h-15 text-[#d4af37]" />,
+                icon: <Code2 className="w-15 h-15 text-[#A8B0BC]" />,
               },
               {
                 name: "Laravel",
-                icon: <Laptop className="w-15 h-15 text-blue-400" />,
+                icon: <Laptop className="w-15 h-15 text-[#A8B0BC]" />,
               },
               {
                 name: "AI/ML",
-                icon: <BrainCircuit className="w-15 h-15 text-[#d4af37]" />,
+                icon: <BrainCircuit className="w-15 h-15 text-[#A8B0BC]" />,
               },
               {
                 name: "Supabase",
-                icon: <Rocket className="w-15 h-15 text-blue-400" />,
+                icon: <Rocket className="w-15 h-15 text-[#A8B0BC]" />,
               },
               {
                 name: "Tailwind",
-                icon: <Code2 className="w-15 h-15 text-blue-400" />,
+                icon: <Code2 className="w-15 h-15 text-[#A8B0BC]" />,
               },
             ].map((stack, index) => (
               <div
                 key={index}
-                className="flex items-center gap-2.5 font-medium text-lg text-slate-400 whitespace-nowrap opacity-40 hover:opacity-100 hover:text-white transition-opacity cursor-default"
+                className="flex items-center gap-2.5 font-medium text-[15px] text-[#A8B0BC]/40 whitespace-nowrap"
               >
                 {stack.icon} {stack.name}
               </div>
             ))}
 
-            {/* Duplikasi Konten (Agar Looping Mulus) */}
             {[
               {
                 name: "Next.js",
-                icon: <Globe className="w-15 h-15 text-[#d4af37]" />,
+                icon: <Globe className="w-15 h-15 text-[#A8B0BC]" />,
               },
               {
                 name: "TypeScript",
-                icon: <Code2 className="w-15 h-15 text-[#d4af37]" />,
+                icon: <Code2 className="w-15 h-15 text-[#A8B0BC]" />,
               },
               {
                 name: "Laravel",
-                icon: <Laptop className="w-15 h-15 text-blue-400" />,
+                icon: <Laptop className="w-15 h-15 text-[#A8B0BC]" />,
               },
               {
                 name: "AI/ML",
-                icon: <BrainCircuit className="w-15 h-15 text-[#d4af37]" />,
+                icon: <BrainCircuit className="w-15 h-15 text-[#A8B0BC]" />,
               },
               {
                 name: "Supabase",
-                icon: <Rocket className="w-15 h-15 text-blue-400" />,
+                icon: <Rocket className="w-15 h-15 text-[#A8B0BC]" />,
               },
               {
                 name: "Tailwind",
-                icon: <Code2 className="w-15 h-15 text-blue-400" />,
+                icon: <Code2 className="w-15 h-15 text-[#A8B0BC]" />,
               },
             ].map((stack, index) => (
               <div
                 key={`dup-${index}`}
-                className="flex items-center gap-2.5 font-medium text-lg text-slate-400 whitespace-nowrap opacity-40 hover:opacity-100 hover:text-white transition-opacity cursor-default"
+                className="flex items-center gap-2.5 font-medium text-[15px] text-[#A8B0BC]/40 whitespace-nowrap"
               >
                 {stack.icon} {stack.name}
               </div>
@@ -186,13 +182,13 @@ export default function LandingPage() {
       {/* SERVICES SECTION */}
       <section className="px-6 py-28 max-w-7xl mx-auto">
         <div className="text-center mb-20">
-          <Badge className="mb-4 bg-[#d4af37]/5 text-[#d4af37] border-none px-4 text-[10px] uppercase tracking-widest">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#A8B0BC]/50">
             Layanan
-          </Badge>
-          <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">
+          </span>
+          <h2 className="text-[38px] md:text-[48px] font-bold tracking-[-0.02em] text-white mt-3 mb-4">
             Layanan yang tersedia
           </h2>
-          <p className="text-slate-500 max-w-md mx-auto font-medium">
+          <p className="text-[15px] text-[#A8B0BC] max-w-md mx-auto">
             Mulai dari konsultasi, pengembangan aplikasi, hingga penyelesaian
             revisi.
           </p>
@@ -210,36 +206,31 @@ export default function LandingPage() {
               title: "Custom Application",
               icon: <Code2 className="w-5 h-5" />,
               desc: "Pembuatan sistem informasi kustom dengan clean architecture & siap uji.",
-              accent: "border-t-[#d4af37]",
             },
             {
               title: "Full Chapter (Bab 1-5)",
               icon: <Rocket className="w-5 h-5" />,
               desc: "Lengkap dengan dokumen teknis, perancangan sistem, dan mentoring bimbingan.",
-              accent: "border-t-blue-500",
             },
             {
               title: "Mentoring & Debug",
               icon: <MessageCircle className="w-5 h-5" />,
               desc: "Optimasi kode yang sudah ada, perbaikan bug, dan penjelasan logika sistem.",
-              accent: "border-t-emerald-500",
             },
           ].map((item, i) => (
             <motion.div key={i} variants={itemVariants}>
-              <Card
-                className={`group bg-[#0f172a]/40 border-white/5 border-t-2 ${item.accent} backdrop-blur-md hover:bg-[#0f172a]/60 transition-all duration-500 h-full`}
-              >
-                <CardContent className="p-10">
-                  <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center mb-8 text-white group-hover:bg-[#d4af37] group-hover:text-slate-950 transition-all duration-500">
+              <Card className="group bg-[#141619] border-white/[0.06] hover:border-white/[0.12] transition-all duration-500 h-full">
+                <CardContent className="p-8">
+                  <div className="w-12 h-12 flex items-center justify-center mb-8 text-[#A8B0BC] group-hover:text-[#1C69D4] transition-colors duration-500">
                     {item.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-4 text-white">
+                  <h3 className="text-[17px] font-semibold text-white mb-4">
                     {item.title}
                   </h3>
-                  <p className="text-slate-400 leading-relaxed mb-8 text-sm font-medium">
+                  <p className="text-[13px] text-[#A8B0BC] leading-relaxed mb-8">
                     {item.desc}
                   </p>
-                  <div className="text-[#d4af37] font-bold flex items-center gap-2 text-xs uppercase tracking-widest cursor-pointer group-hover:gap-3 transition-all">
+                  <div className="text-[#1C69D4] font-medium flex items-center gap-2 text-[13px] cursor-pointer group-hover:gap-3 transition-all">
                     Explore <ArrowRight className="w-3 h-3" />
                   </div>
                 </CardContent>
@@ -249,67 +240,69 @@ export default function LandingPage() {
         </motion.div>
       </section>
 
-      {/* PORTFOLIO SECTION - CLEANER STYLE */}
-      <section className="px-6 py-28 bg-white/[0.01] border-y border-white/5">
+      {/* PORTFOLIO SECTION */}
+      <section className="px-6 py-28 border-y border-white/[0.06]">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="text-left">
-              <h2 className="text-4xl font-bold text-white tracking-tight mb-4">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#A8B0BC]/50">
+                Portfolio
+              </span>
+              <h2 className="text-[38px] md:text-[48px] font-bold tracking-[-0.02em] text-white mt-3 mb-4">
                 Beberapa project yang pernah dikerjakan
               </h2>
-              <p className="text-slate-500 font-medium">
+              <p className="text-[15px] text-[#A8B0BC]">
                 Beberapa sistem yang telah sukses dipresentasikan.
               </p>
             </div>
             <Link
-              href="/demo"
-              className="text-[#d4af37] text-sm font-bold border-b border-[#d4af37]/20 pb-1 hover:border-[#d4af37] transition-all uppercase tracking-widest"
+              href="/showroom"
+              className="text-[#1C69D4] text-[13px] font-medium border-b border-[#1C69D4]/20 pb-1 hover:border-[#1C69D4] transition-all"
             >
               Lihat Semua Demo
             </Link>
           </div>
 
           <div className="grid md:grid-cols-4 gap-6 auto-rows-[320px]">
-            {/* Project Utama */}
-            <div className="md:col-span-2 bg-slate-900 border border-white/5 rounded-[2rem] p-10 flex flex-col justify-between group hover:border-[#d4af37]/30 transition-all duration-500">
+            <div className="md:col-span-2 bg-[#141619] border border-white/[0.06] p-10 flex flex-col justify-between group hover:border-white/[0.12] transition-all duration-500">
               <div>
-                <Badge className="bg-[#d4af37]/10 text-[#d4af37] border-none mb-6 rounded-lg">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.1em] text-[#1C69D4] mb-6 block">
                   AI System
-                </Badge>
-                <h3 className="text-2xl font-bold text-white mb-3">
+                </span>
+                <h3 className="text-[22px] font-semibold text-white mb-3">
                   SPK Pemilihan Karyawan
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed">
+                <p className="text-[13px] text-[#A8B0BC] leading-relaxed">
                   Metode AHP & TOPSIS dengan dashboard analitik modern.
                 </p>
               </div>
               <div className="flex gap-3">
-                <span className="text-[10px] font-bold text-slate-600 border border-white/10 px-3 py-1 rounded-md uppercase tracking-wider">
+                <span className="text-[10px] font-medium text-[#A8B0BC]/50 border border-white/[0.06] px-3 py-1 uppercase tracking-[0.1em]">
                   Next.js
                 </span>
-                <span className="text-[10px] font-bold text-slate-600 border border-white/10 px-3 py-1 rounded-md uppercase tracking-wider">
+                <span className="text-[10px] font-medium text-[#A8B0BC]/50 border border-white/[0.06] px-3 py-1 uppercase tracking-[0.1em]">
                   PostgreSQL
                 </span>
               </div>
             </div>
 
-            <div className="md:col-span-2 bg-slate-900 border border-white/5 rounded-[2rem] p-10 flex flex-col justify-between group hover:border-[#d4af37]/30 transition-all duration-500">
+            <div className="md:col-span-2 bg-[#141619] border border-white/[0.06] p-10 flex flex-col justify-between group hover:border-white/[0.12] transition-all duration-500">
               <div>
-                <Badge className="bg-blue-500/10 text-blue-400 border-none mb-6 rounded-lg">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.1em] text-[#1C69D4] mb-6 block">
                   Mobile App
-                </Badge>
-                <h3 className="text-2xl font-bold text-white mb-3">
+                </span>
+                <h3 className="text-[22px] font-semibold text-white mb-3">
                   Sistem Inventori Lab
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed">
+                <p className="text-[13px] text-[#A8B0BC] leading-relaxed">
                   Tracking aset real-time menggunakan integrasi QR Code.
                 </p>
               </div>
               <div className="flex gap-3">
-                <span className="text-[10px] font-bold text-slate-600 border border-white/10 px-3 py-1 rounded-md uppercase tracking-wider">
+                <span className="text-[10px] font-medium text-[#A8B0BC]/50 border border-white/[0.06] px-3 py-1 uppercase tracking-[0.1em]">
                   React Native
                 </span>
-                <span className="text-[10px] font-bold text-slate-600 border border-white/10 px-3 py-1 rounded-md uppercase tracking-wider">
+                <span className="text-[10px] font-medium text-[#A8B0BC]/50 border border-white/[0.06] px-3 py-1 uppercase tracking-[0.1em]">
                   Node.js
                 </span>
               </div>
@@ -320,48 +313,50 @@ export default function LandingPage() {
 
       {/* CALL TO ACTION */}
       <section className="px-6 py-40 text-center relative">
-        <h2 className="text-5xl font-bold mb-8 text-white tracking-tight">
+        <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#A8B0BC]/50">
+          Gratis Konsultasi
+        </span>
+        <h2 className="text-[38px] md:text-[48px] font-bold tracking-[-0.02em] text-white mt-4 mb-4">
           Punya project yang ingin didiskusikan?
         </h2>
-        <p className="text-slate-400 mb-12 max-w-lg mx-auto font-medium leading-relaxed text-lg">
+        <p className="text-[15px] text-[#A8B0BC] max-w-lg mx-auto mb-12 leading-relaxed">
           Hubungi kami untuk konsultasi skripsi, pengembangan aplikasi, atau
           servis komputer. Respon cepat melalui WhatsApp.
         </p>
         <Button
           size="lg"
-          className="bg-white text-slate-950 hover:bg-[#d4af37] hover:text-slate-950 font-bold px-12 py-8 text-xl rounded-full transition-all duration-300 shadow-2xl shadow-white/5"
+          className="bg-[#1C69D4] text-white hover:bg-[#1C69D4]/90 font-medium px-12 py-7 text-[15px]"
         >
-          <MessageCircle className="mr-3 w-6 h-6 fill-current" /> Hubungi
-          WhatsApp
+          <MessageCircle className="mr-3 w-5 h-5" /> Hubungi WhatsApp
         </Button>
       </section>
 
-      {/* FOOTER - MINIMALIST GOLD */}
-      <footer className="border-t border-white/5 py-16 px-8 bg-[#020617]">
+      {/* FOOTER */}
+      <footer className="border-t border-white/[0.06] py-14 px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-white/5 border border-[#d4af37]/20 rounded-xl flex items-center justify-center font-bold text-[#d4af37]">
-              S
+            <div className="w-9 h-9 bg-[#141619] flex items-center justify-center text-[#A8B0BC] font-semibold text-[14px]">
+              P
             </div>
             <div className="text-left">
-              <span className="block font-bold text-white text-lg tracking-tighter">
+              <span className="block font-semibold text-white text-[15px] tracking-tight">
                 Prisma Tangerang
               </span>
-              <span className="block text-[10px] uppercase tracking-[0.3em] text-slate-600 font-bold">
+              <span className="block text-[10px] uppercase tracking-[0.1em] text-[#A8B0BC]/50 font-medium">
                 Tangerang District
               </span>
             </div>
           </div>
 
-          <p className="text-slate-600 text-[13px] font-medium tracking-wide">
-            © 2026 Prisma Komputer. All rights reserved.
+          <p className="text-[#A8B0BC]/50 text-[12px] font-medium">
+            &copy; 2026 Prisma Komputer. All rights reserved.
           </p>
 
           <div className="flex gap-6">
             {["Instagram", "Github"].map((item) => (
               <span
                 key={item}
-                className="text-[11px] font-bold uppercase tracking-widest text-slate-500 hover:text-[#d4af37] cursor-pointer transition-colors"
+                className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#A8B0BC]/50 hover:text-white cursor-pointer transition-colors"
               >
                 {item}
               </span>

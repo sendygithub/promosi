@@ -3,18 +3,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Search,
   ChevronRight,
   MessageCircle,
-  Mail,
-  MapPin,
-  Clock3,
-  Sparkles,
-  ExternalLink,
-  Star,
+  ArrowRight,
   Globe,
   Monitor,
   Smartphone,
@@ -23,8 +17,13 @@ import {
   Shield,
   BarChart3,
   Layers,
+  ExternalLink,
+  Star,
+  Clock3,
+  Sparkles,
 } from "lucide-react";
 import Image from "next/image";
+import Navbar from "@/app/components/Navbar";
 
 // Helper untuk mengambil URL Logo Tech Stack
 const getTechIcon = (tech: string) => {
@@ -50,7 +49,7 @@ const getTechIcon = (tech: string) => {
   return icons[tech] || "https://svgl.app/library/code.svg";
 };
 
-// ===== REAL PROJECTS (milik Sendy) =====
+// ===== REAL PROJECTS =====
 const realProjects = [
   {
     id: "andreansah",
@@ -59,8 +58,6 @@ const realProjects = [
     url: "https://andreansah.vercel.app",
     stack: ["Next.js", "TypeScript", "Tailwind"],
     category: "Portfolio",
-    gradient: "from-amber-600/20 via-orange-500/10 to-rose-600/20",
-    accentColor: "amber",
     features: ["Responsive Design", "Dark Mode", "Animasi Smooth"],
   },
   {
@@ -70,8 +67,6 @@ const realProjects = [
     url: "https://bintang-audio.vercel.app",
     stack: ["Next.js", "TypeScript", "Tailwind"],
     category: "Rental",
-    gradient: "from-violet-600/20 via-purple-500/10 to-fuchsia-600/20",
-    accentColor: "violet",
     features: ["Katalog Produk", "Sistem Booking", "Admin Dashboard"],
   },
   {
@@ -81,8 +76,6 @@ const realProjects = [
     url: "https://sky-fish.vercel.app",
     stack: ["Next.js", "TypeScript", "Tailwind"],
     category: "E-Commerce",
-    gradient: "from-cyan-600/20 via-blue-500/10 to-teal-600/20",
-    accentColor: "cyan",
     features: ["Katalog Produk", "Keranjang Belanja", "Pembayaran Online"],
   },
   {
@@ -92,8 +85,6 @@ const realProjects = [
     url: "https://rkk-petshop.vercel.app",
     stack: ["Next.js", "TypeScript", "Tailwind"],
     category: "E-Commerce",
-    gradient: "from-emerald-600/20 via-green-500/10 to-lime-600/20",
-    accentColor: "emerald",
     features: ["Katalog Produk", "Layanan Grooming", "Reservasi Online"],
   },
   {
@@ -103,8 +94,6 @@ const realProjects = [
     url: "https://rpsncsubang.vercel.app",
     stack: ["Next.js", "TypeScript", "Tailwind"],
     category: "Portal Berita",
-    gradient: "from-sky-600/20 via-blue-500/10 to-indigo-600/20",
-    accentColor: "sky",
     features: ["Manajemen Berita", "Multi Halaman", "Responsive Design"],
   },
   {
@@ -114,8 +103,6 @@ const realProjects = [
     url: "https://prisma-komputer.vercel.app/ulangtahun/nama-tamu",
     stack: ["Next.js", "TypeScript", "Tailwind"],
     category: "Undangan",
-    gradient: "from-pink-600/20 via-rose-500/10 to-red-600/20",
-    accentColor: "pink",
     features: ["Desain Menarik", "Customizable", "Responsive Design"],
   },
 ];
@@ -443,42 +430,6 @@ const processProjects = [
   },
 ];
 
-const accentColors: Record<
-  string,
-  { text: string; bg: string; border: string; glow: string }
-> = {
-  amber: {
-    text: "text-amber-300",
-    bg: "bg-amber-500/10",
-    border: "border-amber-500/30",
-    glow: "bg-amber-500/20",
-  },
-  violet: {
-    text: "text-violet-300",
-    bg: "bg-violet-500/10",
-    border: "border-violet-500/30",
-    glow: "bg-violet-500/20",
-  },
-  cyan: {
-    text: "text-cyan-300",
-    bg: "bg-cyan-500/10",
-    border: "border-cyan-500/30",
-    glow: "bg-cyan-500/20",
-  },
-  emerald: {
-    text: "text-emerald-300",
-    bg: "bg-emerald-500/10",
-    border: "border-emerald-500/30",
-    glow: "bg-emerald-500/20",
-  },
-  sky: {
-    text: "text-sky-300",
-    bg: "bg-sky-500/10",
-    border: "border-sky-500/30",
-    glow: "bg-sky-500/20",
-  },
-};
-
 const featureIcons = [
   Globe,
   Monitor,
@@ -518,53 +469,59 @@ export default function DemoPage() {
   });
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-[#d4af37]/30">
-      {/* BACKGROUND GLOWS */}
-      <div className="fixed top-0 left-1/4 w-96 h-96 bg-[#d4af37]/5 rounded-full blur-[120px] -z-10" />
-      <div className="fixed bottom-0 right-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-[120px] -z-10" />
-      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-amber-600/5 via-purple-600/5 to-cyan-600/5 rounded-full blur-[150px] -z-10" />
+    <main className="min-h-screen bg-black text-[#A8B0BC] selection:bg-[#1C69D4]/20 overflow-x-hidden">
+      <Navbar />
+      <div className="h-20 w-full" />
 
-      <div className="pt-10 px-8 max-w-7xl mx-auto">
-        <header className="mb-20 text-center">
+      <div className="px-6 max-w-7xl mx-auto">
+        {/* HEADER */}
+        <header className="mb-16 pt-16 text-center">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <Badge className="bg-[#d4af37]/10 text-[#d4af37] border-[#d4af37]/20 mb-4 px-4 py-1 rounded-full uppercase tracking-widest text-[10px] font-bold">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#A8B0BC]/50">
               Premium Showcase
-            </Badge>
-            <h1 className="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-amber-200 via-[#d4af37] to-amber-100 mb-6 tracking-tighter leading-[1.1]">
-              PROJECT SHOWROOM
+            </span>
+            <h1 className="text-[40px] md:text-[80px] font-bold tracking-[-0.02em] leading-[1.05] text-white mt-4 mb-6">
+              Project Showroom
             </h1>
-            <p className="text-white/50 max-w-2xl mx-auto mb-12 text-lg leading-relaxed">
+            <p className="text-[15px] text-[#A8B0BC] max-w-2xl mx-auto mb-12 leading-relaxed">
               Eksplorasi mahakarya aplikasi Sistem Informasi yang kami bangun
               dengan standar industri dan teknologi terkini.
             </p>
           </motion.div>
 
           {/* SEARCH BAR */}
-          <div className="relative max-w-2xl mx-auto mb-12">
-            <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-[#d4af37] w-5 h-5" />
+          <div className="relative max-w-2xl mx-auto mb-10">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#A8B0BC]/50 pointer-events-none" />
             <input
               type="text"
               placeholder="Cari solusi atau teknologi..."
-              className="w-full bg-white/5 border border-white/10 rounded-full py-5 pl-14 pr-6 focus:outline-none focus:ring-2 focus:ring-[#d4af37]/40 transition-all text-lg backdrop-blur-sm"
+              value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full bg-transparent border border-white/[0.12] py-4 pl-11 pr-10 text-[14px] text-white placeholder:text-[#A8B0BC]/50 focus:outline-none focus:border-white/[0.25] transition-colors"
             />
+            {searchTerm && (
+              <button
+                onClick={() => setSearchTerm("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#A8B0BC]/50 hover:text-[#A8B0BC] transition-colors text-[13px]"
+              >
+                Clear
+              </button>
+            )}
           </div>
 
           {/* FILTER BUTTONS */}
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-2">
             {filterOptions.map((stack) => (
-              <motion.button
+              <button
                 key={stack}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveFilter(stack)}
-                className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 border flex items-center gap-2 ${
+                className={`px-4 py-2 text-[12px] font-medium transition-all duration-300 border flex items-center gap-2 ${
                   activeFilter === stack
-                    ? "bg-[#d4af37]/10 border-[#d4af37] text-[#d4af37] shadow-none"
-                    : "bg-white/5 border-white/10 text-white/50 hover:border-[#d4af37]/50 hover:text-white"
+                    ? "bg-[#1C69D4]/10 border-[#1C69D4]/30 text-white"
+                    : "bg-transparent border-white/[0.06] text-[#A8B0BC]/50 hover:border-white/[0.12] hover:text-[#A8B0BC]"
                 }`}
               >
                 {stack !== "All" &&
@@ -575,11 +532,11 @@ export default function DemoPage() {
                       height={20}
                       src={getTechIcon(stack)}
                       alt={stack}
-                      className="w-4 h-4 object-contain brightness-110"
+                      className="w-4 h-4 object-contain"
                     />
                   )}
                 {stack}
-              </motion.button>
+              </button>
             ))}
           </div>
         </header>
@@ -587,254 +544,201 @@ export default function DemoPage() {
         {/* ===== REAL PROJECTS SECTION ===== */}
         {filteredReal.length > 0 && (
           <section className="mb-24">
-            <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
-              <div>
-                <Badge className="mb-4 bg-amber-500/10 text-amber-300 border-amber-400/20 px-4 py-1 rounded-full uppercase tracking-widest text-[10px] font-bold">
-                  ★ Featured Projects
-                </Badge>
-                <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-                  Project Aktif & Live
-                </h2>
-                <p className="mt-3 max-w-2xl text-white/45 leading-relaxed">
-                  Klik card untuk melihat langsung website yang sudah online dan
-                  bisa diakses publik.
-                </p>
-              </div>
-              <div className="hidden md:flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white/45">
-                <Globe className="w-4 h-4 text-emerald-400" />
-                Live on Vercel
-              </div>
+            <div className="mb-12">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#1C69D4]">
+                ★ Featured Projects
+              </span>
+              <h2 className="text-[38px] md:text-[48px] font-bold tracking-[-0.02em] text-white mt-3 mb-3">
+                Project Aktif & Live
+              </h2>
+              <p className="text-[15px] text-[#A8B0BC] max-w-2xl leading-relaxed">
+                Klik card untuk melihat langsung website yang sudah online dan
+                bisa diakses publik.
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredReal.map((project, index) => {
-                const colors =
-                  accentColors[project.accentColor] || accentColors.amber;
-                return (
-                  <motion.div
-                    key={project.id}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    onMouseEnter={() => setHoveredReal(project.id)}
-                    onMouseLeave={() => setHoveredReal(null)}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredReal.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  onMouseEnter={() => setHoveredReal(project.id)}
+                  onMouseLeave={() => setHoveredReal(null)}
+                >
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block relative overflow-hidden border border-white/[0.06] bg-[#141619] transition-all duration-500 hover:border-white/[0.12] hover:-translate-y-1"
                   >
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group block relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] transition-all duration-700 hover:scale-[1.02] hover:-translate-y-2"
-                    >
-                      {/* Animated gradient background */}
-                      <div
-                        className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700`}
-                      />
-                      {/* Glow effect on hover */}
-                      <div
-                        className={`absolute -inset-1 bg-gradient-to-r ${project.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 -z-10`}
-                      />
-
-                      {/* Browser mockup bar */}
-                      <div className="relative px-5 pt-5 pb-3">
-                        <div className="flex items-center gap-2 mb-4">
-                          <div className="flex gap-1.5">
-                            <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                            <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                            <div className="w-3 h-3 rounded-full bg-green-500/80" />
-                          </div>
-                          <div className="flex-1 mx-3">
-                            <div className="bg-white/5 rounded-full px-3 py-1.5 flex items-center gap-2">
-                              <Globe className="w-3 h-3 text-white/30" />
-                              <span className="text-[10px] text-white/30 truncate font-mono">
-                                {project.url.replace("https://", "")}
-                              </span>
-                            </div>
-                          </div>
-                          <ExternalLink className="w-4 h-4 text-white/30 group-hover:text-white transition-colors" />
+                    {/* Browser mockup bar */}
+                    <div className="px-5 pt-5 pb-3">
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className="flex gap-1.5">
+                          <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+                          <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
+                          <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
                         </div>
-
-                        {/* Live Website Preview Area */}
-                        <div
-                          className={`relative rounded-xl overflow-hidden h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}
-                        >
-                          <div className="absolute inset-0 overflow-hidden">
-                            <div
-                              className={`absolute -top-10 -right-10 w-32 h-32 ${colors.glow} rounded-full blur-3xl animate-pulse`}
-                            />
-                            <div
-                              className={`absolute -bottom-10 -left-10 w-32 h-32 ${colors.glow} rounded-full blur-3xl animate-pulse delay-1000`}
-                            />
+                        <div className="flex-1 mx-3">
+                          <div className="bg-white/[0.03] px-3 py-1.5 flex items-center gap-2">
+                            <Globe className="w-3 h-3 text-[#A8B0BC]/30" />
+                            <span className="text-[10px] text-[#A8B0BC]/30 truncate font-mono">
+                              {project.url.replace("https://", "")}
+                            </span>
                           </div>
-                          <div className="relative z-10 text-center px-6">
-                            <div
-                              className={`w-16 h-16 mx-auto mb-4 rounded-2xl ${colors.bg} ${colors.border} border flex items-center justify-center`}
-                            >
-                              <Globe className={`w-8 h-8 ${colors.text}`} />
-                            </div>
-                            <h3
-                              className={`text-xl font-bold ${colors.text} mb-2`}
-                            >
-                              {project.title.split("—")[0].trim()}
-                            </h3>
-                            <p className="text-white/50 text-sm mb-4">
-                              {project.title.split("—")[1]?.trim() ||
-                                project.category}
-                            </p>
-                            <div className="flex items-center justify-center gap-1.5">
-                              <div
-                                className={`px-3 py-1 rounded-full ${colors.bg} ${colors.border} border`}
-                              >
-                                <span
-                                  className={`text-[10px] font-bold ${colors.text}`}
+                        </div>
+                        <ExternalLink className="w-4 h-4 text-[#A8B0BC]/30 group-hover:text-[#1C69D4] transition-colors" />
+                      </div>
+
+                      {/* Preview Area */}
+                      <div className="relative overflow-hidden h-48 bg-[#0D0E10] flex items-center justify-center">
+                        <div className="absolute inset-0 overflow-hidden">
+                          <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#1C69D4]/10 rounded-full blur-3xl" />
+                          <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#1C69D4]/10 rounded-full blur-3xl" />
+                        </div>
+                        <div className="relative z-10 text-center px-6">
+                          <div className="w-16 h-16 mx-auto mb-4 border border-white/[0.06] bg-white/[0.03] flex items-center justify-center">
+                            <Globe className="w-8 h-8 text-[#A8B0BC]" />
+                          </div>
+                          <h3 className="text-lg font-semibold text-white mb-2">
+                            {project.title.split("—")[0].trim()}
+                          </h3>
+                          <p className="text-[13px] text-[#A8B0BC]/50 mb-4">
+                            {project.title.split("—")[1]?.trim() ||
+                              project.category}
+                          </p>
+                          <div className="flex items-center justify-center gap-3">
+                            <span className="text-[10px] font-semibold uppercase tracking-[0.1em] text-[#1C69D4]">
+                              Live
+                            </span>
+                            <div className="flex -space-x-1.5">
+                              {project.stack.slice(0, 3).map((tech) => (
+                                <div
+                                  key={tech}
+                                  className="w-7 h-7 rounded-full bg-[#141619] border-2 border-black flex items-center justify-center p-1.5"
+                                  title={tech}
                                 >
-                                  Live
-                                </span>
-                              </div>
-                              <div className="flex -space-x-1.5">
-                                {project.stack.slice(0, 3).map((tech) => (
-                                  <div
-                                    key={tech}
-                                    className="w-7 h-7 rounded-full bg-slate-900 border-2 border-slate-950 flex items-center justify-center p-1.5"
-                                    title={tech}
-                                  >
-                                    <Image
-                                      width={28}
-                                      height={28}
-                                      src={getTechIcon(tech)}
-                                      alt={tech}
-                                      className="w-full h-full object-contain"
-                                    />
-                                  </div>
-                                ))}
-                              </div>
+                                  <Image
+                                    width={28}
+                                    height={28}
+                                    src={getTechIcon(tech)}
+                                    alt={tech}
+                                    className="w-full h-full object-contain"
+                                  />
+                                </div>
+                              ))}
                             </div>
                           </div>
+                        </div>
 
-                          {/* Overlay on hover */}
-                          <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                            <motion.div
-                              initial={false}
-                              animate={
-                                hoveredReal === project.id
-                                  ? { scale: 1 }
-                                  : { scale: 0.8 }
-                              }
-                              className="flex flex-col items-center gap-3"
+                        {/* Overlay on hover */}
+                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                          <motion.div
+                            initial={false}
+                            animate={
+                              hoveredReal === project.id
+                                ? { scale: 1 }
+                                : { scale: 0.8 }
+                            }
+                            className="flex flex-col items-center gap-3"
+                          >
+                            <div className="p-4 border border-[#1C69D4]/30 bg-[#1C69D4]/10">
+                              <ExternalLink className="w-8 h-8 text-[#1C69D4]" />
+                            </div>
+                            <span className="text-sm font-semibold text-[#1C69D4] tracking-wider uppercase">
+                              Kunjungi Website
+                            </span>
+                          </motion.div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="px-5 pb-6">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-[10px] font-semibold uppercase tracking-[0.1em] text-[#A8B0BC]/50">
+                          {project.category}
+                        </span>
+                        <div className="flex gap-0.5">
+                          {[1, 2, 3, 4, 5].map((star) => (
+                            <Star
+                              key={star}
+                              className="w-3 h-3 text-[#1C69D4] fill-[#1C69D4]"
+                            />
+                          ))}
+                        </div>
+                      </div>
+
+                      <h3 className="text-[17px] font-semibold text-white mb-2 group-hover:text-[#1C69D4] transition-colors">
+                        {project.title}
+                      </h3>
+
+                      <p className="text-[13px] text-[#A8B0BC] leading-relaxed mb-4 line-clamp-2">
+                        {project.desc}
+                      </p>
+
+                      {/* Features */}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.features.map((feature, i) => {
+                          const FeatureIcon =
+                            featureIcons[i % featureIcons.length];
+                          return (
+                            <span
+                              key={feature}
+                              className="inline-flex items-center gap-1 px-2 py-1 text-[10px] font-medium uppercase tracking-wider text-[#A8B0BC]/50 border border-white/[0.06]"
                             >
-                              <div
-                                className={`p-4 rounded-full ${colors.bg} ${colors.border} border backdrop-blur-sm`}
-                              >
-                                <ExternalLink
-                                  className={`w-8 h-8 ${colors.text}`}
-                                />
-                              </div>
-                              <span
-                                className={`text-sm font-bold ${colors.text} tracking-wider uppercase`}
-                              >
-                                Kunjungi Website
-                              </span>
-                            </motion.div>
-                          </div>
-                        </div>
+                              <FeatureIcon className="w-3 h-3" />
+                              {feature}
+                            </span>
+                          );
+                        })}
                       </div>
 
-                      {/* Content */}
-                      <div className="px-5 pb-6 relative z-10">
-                        <div className="flex items-center justify-between mb-3">
-                          <Badge
-                            className={`${colors.bg} ${colors.text} ${colors.border} rounded-md px-3 font-mono text-[10px] font-bold`}
-                          >
-                            {project.category}
-                          </Badge>
-                          <div className="flex gap-1">
-                            {[1, 2, 3, 4, 5].map((star) => (
-                              <Star
-                                key={star}
-                                className={`w-3 h-3 ${colors.text} fill-current`}
+                      <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between">
+                        <div className="flex -space-x-2">
+                          {project.stack.map((tech) => (
+                            <div
+                              key={tech}
+                              className="w-8 h-8 rounded-full bg-[#141619] border-2 border-black flex items-center justify-center p-2 hover:z-10 transition-transform hover:scale-125"
+                              title={tech}
+                            >
+                              <Image
+                                width={32}
+                                height={32}
+                                src={getTechIcon(tech)}
+                                alt={tech}
+                                className="w-full h-full object-contain"
                               />
-                            ))}
-                          </div>
+                            </div>
+                          ))}
                         </div>
-
-                        <h3
-                          className={`text-xl font-bold text-white mb-2 group-hover:${colors.text} transition-colors leading-snug`}
-                        >
-                          {project.title}
-                        </h3>
-
-                        <p className="text-white/40 text-sm leading-relaxed mb-4 line-clamp-2 font-medium">
-                          {project.desc}
-                        </p>
-
-                        {/* Features */}
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {project.features.map((feature, i) => {
-                            const FeatureIcon =
-                              featureIcons[i % featureIcons.length];
-                            return (
-                              <span
-                                key={feature}
-                                className={`inline-flex items-center gap-1 rounded-md ${colors.bg}/50 px-2 py-1 text-[10px] font-bold uppercase tracking-wider ${colors.text}/70`}
-                              >
-                                <FeatureIcon className="w-3 h-3" />
-                                {feature}
-                              </span>
-                            );
-                          })}
-                        </div>
-
-                        <div className="pt-4 border-t border-white/5 flex items-center justify-between">
-                          <div className="flex -space-x-2">
-                            {project.stack.map((tech) => (
-                              <div
-                                key={tech}
-                                className="w-8 h-8 rounded-full bg-slate-900 border-2 border-slate-950 flex items-center justify-center p-2 hover:z-10 transition-transform hover:scale-125 shadow-2xl"
-                                title={tech}
-                              >
-                                <Image
-                                  width={32}
-                                  height={32}
-                                  src={getTechIcon(tech)}
-                                  alt={tech}
-                                  className="w-full h-full object-contain"
-                                />
-                              </div>
-                            ))}
-                          </div>
-                          <span
-                            className={`text-[10px] font-bold text-white/20 uppercase tracking-[0.2em] group-hover:${colors.text} transition-colors`}
-                          >
-                            Live Demo →
-                          </span>
-                        </div>
+                        <span className="text-[10px] font-semibold uppercase tracking-[0.1em] text-[#A8B0BC]/30 group-hover:text-[#1C69D4] transition-colors">
+                          Live Demo →
+                        </span>
                       </div>
-                    </a>
-                  </motion.div>
-                );
-              })}
+                    </div>
+                  </a>
+                </motion.div>
+              ))}
             </div>
           </section>
         )}
 
         {/* ===== ON PROCESS SECTION ===== */}
         <section className="mb-24">
-          <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
-            <div>
-              <Badge className="mb-4 bg-blue-500/10 text-blue-300 border-blue-400/20 px-4 py-1 rounded-full uppercase tracking-widest text-[10px] font-bold">
-                New Project On Process!
-              </Badge>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-                Project Baru & Eksperimen Aktif
-              </h2>
-              <p className="mt-3 max-w-2xl text-white/45 leading-relaxed">
-                Kumpulan halaman dan demo yang sedang disiapkan. Beberapa sudah
-                bisa dibuka, sisanya masih dummy untuk project berikutnya.
-              </p>
-            </div>
-            <div className="hidden md:flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white/45">
-              <Clock3 className="w-4 h-4 text-[#d4af37]" />
-              Updated Showcase
-            </div>
+          <div className="mb-12">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#1C69D4]">
+              New Project On Process!
+            </span>
+            <h2 className="text-[38px] md:text-[48px] font-bold tracking-[-0.02em] text-white mt-3 mb-3">
+              Project Baru & Eksperimen Aktif
+            </h2>
+            <p className="text-[15px] text-[#A8B0BC] max-w-2xl leading-relaxed">
+              Kumpulan halaman dan demo yang sedang disiapkan. Beberapa sudah
+              bisa dibuka, sisanya masih dummy untuk project berikutnya.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -842,31 +746,31 @@ export default function DemoPage() {
               <Link
                 key={project.title}
                 href={project.href}
-                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-blue-400/40 hover:bg-white/[0.055]"
+                className="group relative overflow-hidden border border-white/[0.06] bg-[#141619] p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[#1C69D4]/30"
               >
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#1C69D4]/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                 <div className="mb-7 flex items-start justify-between gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-300 ring-1 ring-blue-400/20">
+                  <div className="flex h-12 w-12 items-center justify-center border border-white/[0.06] bg-white/[0.03] text-[#A8B0BC]">
                     <Sparkles className="h-5 w-5" />
                   </div>
-                  <span className="rounded-full border border-[#d4af37]/20 bg-[#d4af37]/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em] text-[#d4af37]">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.1em] text-[#1C69D4]">
                     {project.status}
                   </span>
                 </div>
-                <p className="mb-3 font-mono text-xs font-bold text-white/25">
+                <p className="mb-3 font-mono text-xs font-bold text-[#A8B0BC]/25">
                   0{index + 1}
                 </p>
-                <h3 className="text-xl font-bold text-white transition-colors group-hover:text-blue-200">
+                <h3 className="text-[17px] font-semibold text-white transition-colors group-hover:text-[#1C69D4]">
                   {project.title}
                 </h3>
-                <p className="mt-3 min-h-[72px] text-sm leading-relaxed text-white/45">
+                <p className="mt-3 min-h-[72px] text-[13px] leading-relaxed text-[#A8B0BC]">
                   {project.desc}
                 </p>
-                <div className="mt-6 flex flex-wrap gap-2 border-t border-white/5 pt-5">
+                <div className="mt-6 flex flex-wrap gap-2 border-t border-white/[0.06] pt-5">
                   {project.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-md bg-white/5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white/45"
+                      className="text-[10px] font-medium uppercase tracking-wider text-[#A8B0BC]/50 border border-white/[0.06] px-2.5 py-1"
                     >
                       {tech}
                     </span>
@@ -880,7 +784,7 @@ export default function DemoPage() {
         {/* ===== DUMMY PROJECTS GRID ===== */}
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-32"
         >
           <AnimatePresence mode="popLayout">
             {filteredDummy.map((project) => (
@@ -890,31 +794,31 @@ export default function DemoPage() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                whileHover={{ y: -10 }}
+                whileHover={{ y: -5 }}
               >
                 <Link href={`/demo/${project.slug}`}>
-                  <Card className="group relative bg-white/[0.03] border-white/5 hover:border-[#d4af37]/40 transition-all duration-500 cursor-pointer overflow-hidden h-full flex flex-col backdrop-blur-md">
+                  <Card className="group bg-[#141619] border-white/[0.06] hover:border-white/[0.12] transition-all duration-500 cursor-pointer overflow-hidden h-full flex flex-col">
                     <CardContent className="p-8">
                       <div className="flex justify-between items-center mb-6">
-                        <Badge className="bg-[#d4af37]/10 text-[#d4af37] border-[#d4af37]/20 rounded-md px-3 font-mono text-[10px] font-bold">
+                        <span className="text-[10px] font-semibold uppercase tracking-[0.1em] text-[#A8B0BC]/50">
                           {project.category}
-                        </Badge>
-                        <div className="p-2 bg-white/5 rounded-full group-hover:bg-gradient-to-r group-hover:from-[#d4af37] group-hover:to-blue-600 transition-all duration-500">
-                          <ChevronRight className="w-4 h-4 text-white group-hover:text-slate-950" />
+                        </span>
+                        <div className="p-2 bg-white/[0.03] border border-white/[0.06] group-hover:bg-[#1C69D4]/10 group-hover:border-[#1C69D4]/30 transition-all duration-500">
+                          <ChevronRight className="w-4 h-4 text-[#A8B0BC] group-hover:text-[#1C69D4]" />
                         </div>
                       </div>
-                      <h3 className="text-xl font-bold text-white mb-4 group-hover:text-[#d4af37] transition-colors leading-snug">
+                      <h3 className="text-[17px] font-semibold text-white mb-4 group-hover:text-[#1C69D4] transition-colors">
                         {project.title}
                       </h3>
-                      <p className="text-white/40 text-sm leading-relaxed mb-8 line-clamp-3 font-medium">
+                      <p className="text-[13px] text-[#A8B0BC] leading-relaxed mb-8 line-clamp-3">
                         {project.desc}
                       </p>
-                      <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between">
+                      <div className="mt-auto pt-6 border-t border-white/[0.06] flex items-center justify-between">
                         <div className="flex -space-x-3">
                           {project.stack.map((s) => (
                             <div
                               key={s}
-                              className="w-10 h-10 rounded-full bg-slate-900 border-2 border-slate-950 flex items-center justify-center p-2.5 hover:z-10 transition-transform hover:scale-125 shadow-2xl"
+                              className="w-10 h-10 rounded-full bg-[#141619] border-2 border-black flex items-center justify-center p-2.5 hover:z-10 transition-transform hover:scale-125"
                               title={s}
                             >
                               <Image
@@ -927,7 +831,7 @@ export default function DemoPage() {
                             </div>
                           ))}
                         </div>
-                        <span className="text-[10px] font-bold text-white/20 uppercase tracking-[0.2em] group-hover:text-[#d4af37] transition-colors">
+                        <span className="text-[10px] font-semibold uppercase tracking-[0.1em] text-[#A8B0BC]/30 group-hover:text-[#1C69D4] transition-colors">
                           View Details
                         </span>
                       </div>
@@ -941,77 +845,38 @@ export default function DemoPage() {
       </div>
 
       {/* FOOTER */}
-      <footer className="bg-slate-950/80 backdrop-blur-md border-t border-white/10 pt-5 pb-10 px-8 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-5">
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-[#d4af37]/10 border-[#d4af37] text-[#d4af37] rounded-xl flex items-center justify-center font-black text-white">
-                NEXT
-              </div>
-              <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-200 via-[#d4af37] to-amber-100 tracking-tighter">
-                NextCore Tangerang
-              </h2>
+      <footer className="border-t border-white/[0.06] py-14 px-8">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 bg-[#141619] flex items-center justify-center text-[#A8B0BC] font-semibold text-[14px]">
+              P
             </div>
-            <p className="text-white/40 max-w-sm mb-8 leading-relaxed italic text-sm">
-              Mentransformasi stres pengerjaan skripsi menjadi kebanggaan
-              profesional. Expert guidance for Information System students.
-            </p>
-            <div className="flex gap-4">
-              {["WhatsApp", "Instagram", "Github"].map((social) => (
-                <motion.div
-                  key={social}
-                  whileHover={{ scale: 1.1, color: "#d4af37" }}
-                  className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-xs font-bold text-white/60 hover:border-[#d4af37]/50 cursor-pointer transition-all"
-                >
-                  {social}
-                </motion.div>
-              ))}
+            <div className="text-left">
+              <span className="block font-semibold text-white text-[15px] tracking-tight">
+                Prisma Tangerang
+              </span>
+              <span className="block text-[10px] uppercase tracking-[0.1em] text-[#A8B0BC]/50 font-medium">
+                Tangerang District
+              </span>
             </div>
           </div>
 
-          <div>
-            <h4 className="text-white font-bold mb-6 text-xs uppercase tracking-[0.2em] border-b border-[#d4af37]/30 pb-2 w-fit">
-              Main Services
-            </h4>
-            <ul className="space-y-4 text-sm text-white/40 font-medium">
-              <li className="hover:text-[#d4af37] cursor-pointer transition-colors">
-                E-Commerce & Retail
-              </li>
-              <li className="hover:text-[#d4af37] cursor-pointer transition-colors">
-                Expert System (AI)
-              </li>
-              <li className="hover:text-[#d4af37] cursor-pointer transition-colors">
-                Decision Support (SPK)
-              </li>
-              <li className="hover:text-[#d4af37] cursor-pointer transition-colors">
-                IoT & Hardware
-              </li>
-            </ul>
-          </div>
+          <p className="text-[#A8B0BC]/50 text-[12px] font-medium">
+            &copy; 2026 Prisma Komputer. All rights reserved.
+          </p>
 
-          <div>
-            <h4 className="text-white font-bold mb-6 text-xs uppercase tracking-[0.2em] border-b border-[#d4af37]/30 pb-2 w-fit">
-              Contact Info
-            </h4>
-            <ul className="space-y-4 text-sm text-white/40 font-medium">
-              <li className="flex items-center gap-3">
-                <MapPin className="w-4 h-4 text-[#d4af37]" /> Tangerang, Banten
-              </li>
-              <li className="flex items-center gap-3 text-white font-bold">
-                <MessageCircle className="w-4 h-4 text-emerald-500" />{" "}
-                0812-8191-6880
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-[#d4af37]" /> dev@sisolution.com
-              </li>
-            </ul>
+          <div className="flex gap-6">
+            {["Instagram", "Github"].map((item) => (
+              <span
+                key={item}
+                className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#A8B0BC]/50 hover:text-white cursor-pointer transition-colors"
+              >
+                {item}
+              </span>
+            ))}
           </div>
-        </div>
-
-        <div className="max-w-7xl mx-auto pt-8 border-t border-white/5 text-center text-[10px] text-white/20 uppercase tracking-[0.4em] font-medium">
-          © 2026 SI Solution Tangerang • Sendy Andreansah • Excellence in Code
         </div>
       </footer>
-    </div>
+    </main>
   );
 }

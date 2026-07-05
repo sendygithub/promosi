@@ -6,12 +6,13 @@ import { Search, Menu, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import NavItem from "./NavItem";
 import MobileMenu from "./MobileMenu";
+import Link from "next/link";
 
 const navLinks = [
   { name: "Services", href: "/services" },
-  { name: "Portfolio", href: "/andreansah.vercel.app" },
-  { name: "Process", href: "/process" },
-  { name: "Pricing", href: "/pricing" },
+  { name: "Portfolio", href: "/showroom" },
+  { name: "Pricing", href: "/harga" },
+  { name: "Servis", href: "/servis" },
 ];
 
 export default function Navbar() {
@@ -51,37 +52,37 @@ export default function Navbar() {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out px-6 py-4 ${
         isScrolled
-          ? "md:top-4 md:mx-auto md:max-w-5xl md:rounded-full border-white/10 bg-slate-900/60 backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.8)] border"
+          ? "md:top-4 md:mx-auto md:max-w-5xl md:rounded-sm border-white/[0.06] bg-[#141619]/80 backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.8)] border"
           : "bg-transparent border-b border-transparent"
       }`}
     >
       {/* Scroll Progress Indicator */}
       <motion.div
-        className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#d4af37] to-cyan-500 origin-left z-[60]"
+        className="absolute top-0 left-0 right-0 h-[2px] bg-[#1C69D4] origin-left z-[60]"
         style={{ scaleX }}
       />
 
       {/* Cursor Spotlight Effect */}
       <div
-        className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 md:block hidden"
+        className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-500 md:block hidden"
         style={{
-          background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(212, 175, 55, 0.08), transparent 80%)`,
+          background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(28, 105, 212, 0.08), transparent 80%)`,
         }}
       />
 
       <div className="flex items-center justify-between relative z-10">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-gradient-to-br from-[#d4af37] to-blue-600 rounded-xl flex items-center justify-center font-black text-white shadow-lg rotate-3 group-hover:rotate-12 transition-transform duration-300">
-            Next
+          <div className="w-10 h-10 bg-[#1C69D4] flex items-center justify-center font-semibold text-white text-[16px]">
+            P
           </div>
-          <span className="text-xl font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent tracking-tighter">
+          <span className="text-[17px] font-semibold text-white tracking-tight">
             PrismaComp
           </span>
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center space-x-2 bg-white/5 p-1 rounded-full border border-white/5 backdrop-blur-md">
+        <div className="hidden md:flex items-center space-x-1 bg-white/[0.03] p-1 border border-white/[0.06]">
           {navLinks.map((link) => (
             <NavItem
               key={link.name}
@@ -97,38 +98,18 @@ export default function Navbar() {
           <Button
             variant="ghost"
             size="icon"
-            className="hidden sm:flex text-slate-400 hover:text-[#d4af37] rounded-full"
+            className="hidden sm:flex text-[#A8B0BC] hover:text-white rounded-sm"
           >
             <Search className="w-5 h-5" />
           </Button>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button className="bg-gradient-to-r from-[#d4af37] to-blue-600 text-slate-950 font-bold rounded-full px-6 shadow-lg shadow-blue-500/20 border-none">
+            <Button className="bg-[#1C69D4] text-white hover:bg-[#1C69D4]/90 font-medium rounded-sm px-5 text-[13px] border-none">
               Konsultasi
             </Button>
           </motion.div>
           <MobileMenu navLinks={navLinks} />
         </div>
       </div>
-
-      {/* Noise Texture Overlay */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
     </motion.nav>
-  );
-}
-
-// Minimal Link replacement if not using NextLink in separate files
-function Link({
-  href,
-  children,
-  className,
-}: {
-  href: string;
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <a href={href} className={className}>
-      {children}
-    </a>
   );
 }

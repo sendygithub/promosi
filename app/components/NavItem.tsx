@@ -39,15 +39,14 @@ export default function NavItem({
       onMouseLeave={resetPosition}
       animate={{ x: position.x, y: position.y }}
       transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
-      className={`relative px-5 py-2 text-sm font-medium transition-colors duration-300 rounded-full z-10 ${
-        isActive ? "text-white" : "text-slate-400 hover:text-[#d4af37]"
+      className={`relative px-4 py-2 text-[13px] font-medium transition-colors duration-300 z-10 ${
+        isActive ? "text-white" : "text-[#A8B0BC] hover:text-white"
       }`}
     >
-      {/* Animated Underline / Background */}
       {isActive && (
         <motion.div
           layoutId="nav-active"
-          className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/20 to-blue-600/20 border border-[#d4af37]/30 rounded-full -z-10 shadow-[0_0_15px_rgba(212,175,55,0.2)]"
+          className="absolute inset-0 bg-[#1C69D4]/10 border border-[#1C69D4]/30 -z-10"
           transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
         />
       )}

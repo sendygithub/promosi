@@ -27,17 +27,21 @@ export default function TutorialLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-950">
-      <div className="mx-auto flex w-full max-w-7xl gap-6 px-4 py-6">
+    <div className="min-h-screen bg-black text-[#A8B0BC]">
+      <div className="mx-auto flex w-full max-w-7xl gap-6 px-4 py-6 pt-24">
         <aside className="hidden w-64 shrink-0 lg:block">
-          <div className="sticky top-6 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-            <div className="mb-5 flex items-center gap-3 border-b border-slate-100 pb-4">
-              <div className="flex size-10 items-center justify-center rounded-lg bg-slate-950 text-[#d4af37]">
+          <div className="sticky top-24 border border-white/[0.06] bg-[#141619] p-4">
+            <div className="mb-5 flex items-center gap-3 border-b border-white/[0.06] pb-4">
+              <div className="flex size-10 items-center justify-center bg-[#1C69D4]/10 text-[#1C69D4]">
                 <BookOpenCheck className="size-5" />
               </div>
               <div>
-                <p className="font-extrabold leading-none">Tutorial</p>
-                <p className="mt-1 text-xs text-slate-500">React basics</p>
+                <p className="font-semibold text-white leading-none">
+                  Tutorial
+                </p>
+                <p className="mt-1 text-[11px] text-[#A8B0BC]/50">
+                  React basics
+                </p>
               </div>
             </div>
             <nav className="space-y-1">
@@ -45,7 +49,7 @@ export default function TutorialLayout({
                 <Link
                   key={href}
                   href={href}
-                  className="block rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+                  className="block px-3 py-2 text-[13px] font-medium text-[#A8B0BC]/70 transition hover:bg-white/[0.03] hover:text-white"
                 >
                   {label}
                 </Link>
@@ -54,13 +58,13 @@ export default function TutorialLayout({
           </div>
         </aside>
 
-        <main className="min-w-0 flex-1 rounded-xl border border-slate-200 bg-white p-4 shadow-sm md:p-6">
+        <main className="min-w-0 flex-1 border border-white/[0.06] bg-[#141619] p-4 md:p-6">
           <div className="mb-5 flex gap-2 overflow-x-auto pb-2 lg:hidden">
             {tutorialLinks.map(([label, href]) => (
               <Link
                 key={href}
                 href={href}
-                className="shrink-0 rounded-full border border-slate-200 px-3 py-1.5 text-xs font-bold text-slate-600"
+                className="shrink-0 border border-white/[0.06] px-3 py-1.5 text-[11px] font-medium text-[#A8B0BC]/70 hover:text-white"
               >
                 {label}
               </Link>
