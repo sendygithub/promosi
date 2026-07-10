@@ -12,7 +12,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Prisma Komputer",
+  verification: {
+    google: "google1f26d8ec8aea002b",
+  },
+
+  title: "Kia Komputer",
   description: "Website untuk membantu anda menyelesaikan masalah IT",
 };
 
