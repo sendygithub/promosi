@@ -50,7 +50,7 @@ export default function LandingPage() {
           </div>
 
           <h1 className="text-[40px] md:text-[80px] font-bold tracking-[-0.02em] leading-[1.05] text-white mb-8">
-            Prisma Komputer
+            Kia Komputer
             <br />
             <span className="text-[#A8B0BC]">Partner Skripsi & IT Support</span>
           </h1>
@@ -340,7 +340,7 @@ export default function LandingPage() {
             </div>
             <div className="text-left">
               <span className="block font-semibold text-white text-[15px] tracking-tight">
-                Prisma Tangerang
+                Kia Komputer Tangerang
               </span>
               <span className="block text-[10px] uppercase tracking-[0.1em] text-[#A8B0BC]/50 font-medium">
                 Tangerang District
@@ -349,7 +349,7 @@ export default function LandingPage() {
           </div>
 
           <p className="text-[#A8B0BC]/50 text-[12px] font-medium">
-            &copy; 2026 Prisma Komputer. All rights reserved.
+            &copy; 2026 Kia Komputer. All rights reserved.
           </p>
 
           <div className="flex gap-6">

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
 
   title: "Kia Komputer",
-  description: "Website untuk membantu anda menyelesaikan masalah IT",
+  description: "Membantu anda menyelesaikan masalah IT",
 };
 
 export default function RootLayout({
