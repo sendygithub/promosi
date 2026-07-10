@@ -74,10 +74,10 @@ export default function Navbar() {
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2 group">
           <div className="w-10 h-10 bg-[#1C69D4] flex items-center justify-center font-semibold text-white text-[16px]">
-            P
+            K
           </div>
           <span className="text-[17px] font-semibold text-white tracking-tight">
-            PrismaComp
+            Kia Komputer
           </span>
         </Link>
 
