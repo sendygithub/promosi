@@ -1,5 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { BookOpenCheck } from "lucide-react";
+import { pageMetadata } from "@/lib/site";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Tutorial Interaktif React & Algoritma",
+  description:
+    "Modul latihan interaktif dasar pemrograman dan React: pencarian data, filtering, transformasi data, dekomposisi masalah, control flow, validasi input, useState, dan Zustand.",
+  path: "/tutorial",
+});
 
 const tutorialLinks = [
   ["Overview", "/tutorial"],

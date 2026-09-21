@@ -9,7 +9,7 @@ import MobileMenu from "./MobileMenu";
 import Link from "next/link";
 
 const navLinks = [
-  { name: "Services", href: "/services" },
+  { name: "Services", href: "/servis" },
   { name: "Portfolio", href: "/showroom" },
   { name: "Pricing", href: "/harga" },
   { name: "Servis", href: "/servis" },

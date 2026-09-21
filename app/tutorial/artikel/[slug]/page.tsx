@@ -3,12 +3,36 @@ import prisma from "@/lib/prisma"
 import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { ShoppingBag } from 'lucide-react';
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/site';
 
 async function AmbilArtikel(slug: string) {
 const tampilkanartikel = await prisma.artikel.findFirst({
         where : {slug: slug},
     })
         return tampilkanartikel
+}
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+    const { slug } = await params;
+    const data = await AmbilArtikel(slug);
+
+    if (!data) {
+        return {
+            title: "Artikel tidak ditemukan",
+            robots: { index: false, follow: false },
+        };
+    }
+
+    return pageMetadata({
+        title: data.judul,
+        description: data.isi,
+        path: `/tutorial/artikel/${data.slug}`,
+    });
 }
 
 export default async function DetailArtikel({
