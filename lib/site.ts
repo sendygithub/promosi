@@ -28,7 +28,7 @@ export type SiteRoute = {
   priority: number;
 };
 
-const FALLBACK_SITE_URL = "https://prisma-komputer.vercel.app";
+const FALLBACK_SITE_URL = "https://kia-komputer.vercel.app";
 
 function stripTrailingSlash(value: string) {
   return value.replace(/\/+$/, "");

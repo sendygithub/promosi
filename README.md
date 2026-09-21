@@ -58,7 +58,7 @@ Domain untuk canonical/OG/sitemap ditentukan otomatis:
 1. `NEXT_PUBLIC_SITE_URL` (isi manual, mis. `https://kia-komputer.com`)
 2. `VERCEL_PROJECT_PRODUCTION_URL` (otomatis di Vercel, domain produksi)
 3. `VERCEL_URL` (deployment preview)
-4. Fallback: `https://prisma-komputer.vercel.app`, atau `http://localhost:3000` saat dev
+4. Fallback: `https://kia-komputer.vercel.app`, atau `http://localhost:3000` saat dev
 
 Set `NEXT_PUBLIC_SITE_URL` di Vercel (Settings → Environment Variables) jika memakai domain custom, lalu redeploy.
 

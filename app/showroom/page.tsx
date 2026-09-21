@@ -100,7 +100,7 @@ const realProjects = [
     id: "Undangan-Ulang-Tahun",
     title: "Undangan Ulang Tahun",
     desc: "Aplikasi undangan ulang tahun digital.",
-    url: "https://prisma-komputer.vercel.app/ulangtahun/nama-tamu",
+    url: "https://kia-komputer.vercel.app/ulangtahun/nama-tamu",
     stack: ["Next.js", "TypeScript", "Tailwind"],
     category: "Undangan",
     features: ["Desain Menarik", "Customizable", "Responsive Design"],
